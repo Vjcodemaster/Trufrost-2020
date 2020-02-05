@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Trufrost</string>
+
+    <string name="commercial_kitchen">Commercial Kitchens</string>
+    <string name="bars_pubs">Bar &amp; Pubs</string>
+    <string name="cake_sweet_shops">Cake &amp; Sweet shops</string>
+    <string name="food_retail">Food Retail</string>
+    <string name="food_preservation">Food Preservation</string>
+    <string name="bio_medical">Bio Medical</string>
+
+
+    <string name="relevant_products">Relevant Products</string>
+    <string name="demo_text">Professional chefs can now enjoy the benefits of reliable equipment built with reputed European refrigeration system &amp; controllers, high quality stainless steel and energy saving design with our products that include Refrigerated Reach-In Cabinets, Undercounters, Preparation Counters, Chef Tables, Saladettes, Countertop Displays, Blast Freezers &amp; Chillers and a complete range of Ice Cube Making Machines. Team Trufrost also has a proven expertise in design, supply and  installation of walk in coolers and freezers for commercial kitchens. Our Butler range of cooking products, coffee machines and blenders , food preparation and bakery products complement the Trufrost range of cooling products to comprehensively address the  foodservice equipment needs of commercial kitchens and coffee shops.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
