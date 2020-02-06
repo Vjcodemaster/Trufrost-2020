@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -17,6 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 import app_utility.Constants;
 import app_utility.OnFragmentInteractionListener;
@@ -41,6 +49,9 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        TrufrostAsyncTask trufrostAsyncTask = new TrufrostAsyncTask();
+        trufrostAsyncTask.execute("1");
 
         initViews();
         mListener = this;
@@ -182,6 +193,83 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 tvSubHeading.setText(sResult);
                 mcvSubHeading.setVisibility(View.VISIBLE);
                 break;
+        }
+    }
+
+    public class TrufrostAsyncTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            fetchDataFromJsonFile();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
+
+        private void fetchDataFromJsonFile(){
+            try {
+                JSONObject jsonObject = new JSONObject(loadJSONFromAsset());
+
+                JSONArray jsonArrayItems = jsonObject.getJSONArray("items");
+                for (int i=0; i<jsonArrayItems.length();i++){
+                    JSONObject joItems = jsonArrayItems.getJSONObject(i);
+                    String sMainCategoryName = joItems.getString("main_category");
+                    String sMainDescription = joItems.getString("main_description");
+
+                    JSONArray jaSubCategoryOne = joItems.getJSONArray("sub_cat_one");
+                    for (int j=0; j<jaSubCategoryOne.length();j++){
+                        JSONObject joSubCategoryOne = jaSubCategoryOne.getJSONObject(j);
+                        String sSubCategoryOneName = joSubCategoryOne.getString("name");
+
+                        JSONArray jaSubCategoryTwo = joSubCategoryOne.getJSONArray("sub_cat_two");
+                        for (int k=0; k<jaSubCategoryTwo.length(); k++){
+                            JSONObject joSubCategoryTwo = jaSubCategoryOne.getJSONObject(k);
+                            String sSubCategoryTwoName = joSubCategoryOne.getString("name");
+
+                            if(joSubCategoryTwo.has("sub_cat_three")){
+                                JSONArray jaSubCategoryThree = joSubCategoryTwo.getJSONArray("sub_cat_three");
+                                for (int l=0; l<jaSubCategoryThree.length(); l++){
+                                    JSONObject joSubCategoryThree = jaSubCategoryOne.getJSONObject(l);
+                                    String sSubCategoryThreeName = joSubCategoryOne.getString("name");
+
+
+                                }
+                            } else {
+                                JSONArray jaProducts = joSubCategoryTwo.getJSONArray("product_names");
+                                for (int m=0;m<jaProducts.length();m++){
+                                    JSONObject joProducts = jaSubCategoryOne.getJSONObject(m);
+                                    String sProductName = joProducts.getString("name");
+                                    String sProductDescription = joProducts.getString("description");
+                                    String sTechSpecKey = joProducts.getString("product_heading");
+                                    String sTechSpecValue = joProducts.getString("product_value");
+                                    //String sImagePath = joProducts.getString("image_path");
+                                }
+                            }
+                        }
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        String loadJSONFromAsset() {
+            String json = null;
+            try {
+                InputStream is = getAssets().open("specs_final.json");
+                int size = is.available();
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                json = new String(buffer, StandardCharsets.UTF_8);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                return null;
+            }
+            return json;
         }
     }
 }
