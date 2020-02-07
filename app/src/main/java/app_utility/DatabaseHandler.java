@@ -7,7 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -32,11 +36,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_SUB_CATEGORY_TWO_NAME = "KEY_SUB_CATEGORY_TWO_NAME";
     private static final String KEY_PRODUCT_NAME = "KEY_PRODUCT_NAME";
     private static final String KEY_PRODUCT_IMAGE_PATH = "KEY_PRODUCT_IMAGE_PATH";
-    private static final String KEY_PRODUCT_TECH_SPECS = "KEY_PRODUCT_TECH_SPECS";
+    private static final String KEY_PRODUCT_TECH_SPECS_KEY = "KEY_PRODUCT_TECH_SPECS_KEY";
+    private static final String KEY_PRODUCT_TECH_SPECS_VALUE = "KEY_PRODUCT_TECH_SPECS_VALUE";
     private static final String KEY_PRODUCT_DESCRIPTION = "KEY_PRODUCT_DESCRIPTION";
 
     //Table Three
-    private static final String KEY_SUB_CATEGORY_THREE_NAME = "KEY_SUB_CATEGORY_TWO_NAME";
+    private static final String KEY_SUB_CATEGORY_THREE_NAME = "KEY_SUB_CATEGORY_THREE_NAME";
 
 
 
@@ -58,7 +63,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_SUB_CATEGORY_TWO_NAME + " TEXT, "
                 + KEY_PRODUCT_NAME + " TEXT, "
                 + KEY_PRODUCT_IMAGE_PATH + " TEXT, "
-                + KEY_PRODUCT_TECH_SPECS + " TEXT, "
+                + KEY_PRODUCT_TECH_SPECS_KEY + " TEXT, "
+                + KEY_PRODUCT_TECH_SPECS_VALUE + " TEXT, "
                 + KEY_PRODUCT_DESCRIPTION + " TEXT)";
 
         String CREATE_THREE_SUB_CATEGORY = "CREATE TABLE " + TABLE_THREE_SUB_CATEGORY + "("
@@ -67,7 +73,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_SUB_CATEGORY_THREE_NAME + " TEXT, "
                 + KEY_PRODUCT_NAME + " TEXT, "
                 + KEY_PRODUCT_IMAGE_PATH + " TEXT, "
-                + KEY_PRODUCT_TECH_SPECS + " TEXT, "
+                + KEY_PRODUCT_TECH_SPECS_KEY + " TEXT, "
+                + KEY_PRODUCT_TECH_SPECS_VALUE + " TEXT, "
                 + KEY_PRODUCT_DESCRIPTION + " TEXT)";
 
         db.execSQL(CREATE_ONE_MAIN_CATEGORY);
@@ -111,7 +118,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_SUB_CATEGORY_TWO_NAME, databaseHelper.get_sub_category_second_name());
         values.put(KEY_PRODUCT_NAME, databaseHelper.get_product_name());
         values.put(KEY_PRODUCT_IMAGE_PATH, databaseHelper.get_product_image_path());
-        values.put(KEY_PRODUCT_TECH_SPECS, databaseHelper.get_product_tech_specs());
+        values.put(KEY_PRODUCT_TECH_SPECS_KEY, databaseHelper.get_product_tech_specs());
+        values.put(KEY_PRODUCT_TECH_SPECS_VALUE, databaseHelper.get_product_tech_specs_value());
         values.put(KEY_PRODUCT_DESCRIPTION, databaseHelper.get_product_description());
 
         // Inserting Row
@@ -129,7 +137,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_SUB_CATEGORY_THREE_NAME, databaseHelper.get_sub_category_third_name());
         values.put(KEY_PRODUCT_NAME, databaseHelper.get_product_name());
         values.put(KEY_PRODUCT_IMAGE_PATH, databaseHelper.get_product_image_path());
-        values.put(KEY_PRODUCT_TECH_SPECS, databaseHelper.get_product_tech_specs());
+        values.put(KEY_PRODUCT_TECH_SPECS_KEY, databaseHelper.get_product_tech_specs());
+        values.put(KEY_PRODUCT_TECH_SPECS_VALUE, databaseHelper.get_product_tech_specs_value());
         values.put(KEY_PRODUCT_DESCRIPTION, databaseHelper.get_product_description());
 
         // Inserting Row
@@ -168,7 +177,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public List<String> getSCTwoFromSCOne(String sSCOneName) {
         List<DatabaseHelper> dataBaseHelperList = new ArrayList<>();
-        ArrayList<String> alSubCategoryTwoNames = new ArrayList<>();
+        LinkedHashSet<String> lhs = new LinkedHashSet<>();
         // Select All Query
         String selectQuery = "SELECT " + KEY_SUB_CATEGORY_TWO_NAME + " FROM " + TABLE_TWO_PRODUCTS + " WHERE "
                 + KEY_SUB_CATEGORY_ONE_NAME + "= '" + sSCOneName+"'";
@@ -183,20 +192,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 // Adding data to list
                 dataBaseHelperList.add(dataBaseHelper);
                 String s = String.valueOf(dataBaseHelperList.get(cursor.getPosition()).get_sub_category_second_name());
-                alSubCategoryTwoNames.add(s);
+                lhs.add(s);
             } while (cursor.moveToNext());
         }
-
         // return recent list
-        return alSubCategoryTwoNames;
+        return new ArrayList<>(lhs);
     }
 
     public List<DatabaseHelper> getProductsFromSCTwo(String sSubCategoryTwo) {
         List<DatabaseHelper> dataBaseHelperList = new ArrayList<>();
         //ArrayList<String> alSubCategoryOneNames = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT " + KEY_PRODUCT_NAME + "," + KEY_PRODUCT_IMAGE_PATH + "," + KEY_PRODUCT_TECH_SPECS +","
-                + KEY_PRODUCT_DESCRIPTION + " FROM " + TABLE_TWO_PRODUCTS + " WHERE "
+        String selectQuery = "SELECT " + KEY_PRODUCT_NAME + "," + KEY_PRODUCT_IMAGE_PATH + "," + KEY_PRODUCT_TECH_SPECS_KEY +","
+                + KEY_PRODUCT_TECH_SPECS_VALUE + "," + KEY_PRODUCT_DESCRIPTION + " FROM " + TABLE_TWO_PRODUCTS + " WHERE "
                 + KEY_SUB_CATEGORY_TWO_NAME + "= '" + sSubCategoryTwo+"'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -208,7 +216,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 dataBaseHelper.set_product_name(cursor.getString(0));
                 dataBaseHelper.set_product_image_path(cursor.getString(1));
                 dataBaseHelper.set_product_tech_specs(cursor.getString(2));
-                dataBaseHelper.set_product_description(cursor.getString(3));
+                dataBaseHelper.set_product_tech_specs_value(cursor.getString(3));
+                dataBaseHelper.set_product_description(cursor.getString(4));
                 // Adding data to list
                 dataBaseHelperList.add(dataBaseHelper);
                 /*String s = String.valueOf(dataBaseHelperList.get(cursor.getPosition()).get_sub_category_first_names());
@@ -220,12 +229,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return dataBaseHelperList;
     }
 
+
+
     public List<DatabaseHelper> getProductsFromSCThree(String sSubCategoryThree) {
         List<DatabaseHelper> dataBaseHelperList = new ArrayList<>();
 
         // Select All Query
-        String selectQuery = "SELECT " + KEY_PRODUCT_NAME + "," + KEY_PRODUCT_IMAGE_PATH + "," + KEY_PRODUCT_TECH_SPECS +","
-                + KEY_PRODUCT_DESCRIPTION + " FROM " + TABLE_TWO_PRODUCTS + " WHERE "
+        String selectQuery = "SELECT " + KEY_PRODUCT_NAME + "," + KEY_PRODUCT_IMAGE_PATH + "," + KEY_PRODUCT_TECH_SPECS_KEY +","
+                + KEY_PRODUCT_TECH_SPECS_VALUE + KEY_PRODUCT_DESCRIPTION + " FROM " + TABLE_TWO_PRODUCTS + " WHERE "
                 + KEY_SUB_CATEGORY_THREE_NAME + "= '" + sSubCategoryThree+"'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -237,7 +248,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 dataBaseHelper.set_product_name(cursor.getString(0));
                 dataBaseHelper.set_product_image_path(cursor.getString(1));
                 dataBaseHelper.set_product_tech_specs(cursor.getString(2));
-                dataBaseHelper.set_product_description(cursor.getString(3));
+                dataBaseHelper.set_product_tech_specs_value(cursor.getString(3));
+                dataBaseHelper.set_product_description(cursor.getString(4));
                 // Adding data to list
                 dataBaseHelperList.add(dataBaseHelper);
             } while (cursor.moveToNext());
@@ -246,4 +258,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return recent list
         return dataBaseHelperList;
     }
+
+    public int getRecordsCount() {
+        int count = 0;
+        String countQuery = "SELECT  * FROM " + TABLE_TWO_PRODUCTS;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+
+        if (cursor != null && !cursor.isClosed()) {
+            count = cursor.getCount();
+            cursor.close();
+        }
+        return count;
+    }
+
 }

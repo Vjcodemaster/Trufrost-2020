@@ -25,14 +25,22 @@ public class AllProductsRVAdapter extends RecyclerView.Adapter<AllProductsRVAdap
     private String sMainMenuName;
     private ArrayList<String> alProductNames;
     private ArrayList<String> alProductImagePath;
+    private ArrayList<String> alTechSpecKey;
+    private ArrayList<String> alTechSpecValue;
+    private ArrayList<String> alDescription;
+
     private OnFragmentInteractionListener mListener;
 
     public AllProductsRVAdapter(Context context, RecyclerView recyclerView, ArrayList<String> alProductNames,
-                                ArrayList<String> alProductImagePath, OnFragmentInteractionListener mListener) {
+                                ArrayList<String> alProductImagePath, ArrayList<String> alTechSpecKey, ArrayList<String> alTechSpecValue,
+                                ArrayList<String> alDescription, OnFragmentInteractionListener mListener) {
         this.context = context;
         this.recyclerView = recyclerView;
         this.alProductNames = alProductNames;
         this.alProductImagePath = alProductImagePath;
+        this.alTechSpecKey = alTechSpecKey;
+        this.alTechSpecValue = alTechSpecValue;
+        this.alDescription = alDescription;
         this.mListener = mListener;
     }
 
@@ -57,7 +65,7 @@ public class AllProductsRVAdapter extends RecyclerView.Adapter<AllProductsRVAdap
         holder.ivProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onActivityCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, alProductNames.get(position));
+                mListener.onFragmentCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, alProductNames.get(position));
                 //HomeScreenActivity.onFragmentInteractionListener.onFragmentMessage("OPEN_PRODUCTS_FRAGMENT", position, "", holder.tvProductName.getText().toString());
             }
         });
@@ -65,7 +73,7 @@ public class AllProductsRVAdapter extends RecyclerView.Adapter<AllProductsRVAdap
         holder.tvProductName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onActivityCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, alProductNames.get(position));
+                mListener.onFragmentCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, alProductNames.get(position));
                 //HomeScreenActivity.onFragmentInteractionListener.onFragmentMessage("OPEN_PRODUCTS_FRAGMENT", position, "", holder.tvProductName.getText().toString());
             }
         });

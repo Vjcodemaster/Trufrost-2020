@@ -2,7 +2,10 @@ package com.autochip.trufrost.ac;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +20,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import app_utility.OnFragmentInteractionListener;
 
@@ -46,6 +51,17 @@ public class IndividualProductFragment extends Fragment {
 
     ImageView ivMainImage;
     TableRow tableRowHeading, tableRowValue;
+    TextView[] tvTechSpecsHeading;
+    TextView[] tvTechSpecsValues;
+
+    String sProductName;
+    String sImagePath;
+    String sTechSpecKey;
+    String sTechSpecValue;
+    String sDescription;
+
+    ArrayList<String> alTechHeading;
+    ArrayList<String> alTechValues ;
 
 
     public IndividualProductFragment() {
@@ -76,6 +92,15 @@ public class IndividualProductFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        Bundle bundle = this.getArguments();
+        if(bundle!=null){
+            sProductName  = bundle.getString("product_name");
+            sImagePath  = bundle.getString("image_path");
+            sTechSpecKey  = bundle.getString("tech_spec_key");
+            sTechSpecValue  = bundle.getString("tech_spec_value");
+            sDescription  = bundle.getString("description");
+        }
     }
 
     @Override
@@ -85,15 +110,16 @@ public class IndividualProductFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_individual_product, container, false);
 
         initViews(view);
+        getData(inflater);
         return view;
     }
 
 
     private void initViews(View view) {
         tvProductName = view.findViewById(R.id.tv_product_name);
-        tvProductName.setText(mParam1);
+        tvProductName.setText(sProductName);
         tvProductDescription = view.findViewById(R.id.tv_product_description);
-        tvProductDescription.setText(mParam2);
+        tvProductDescription.setText(sDescription);
         tlTechnicalSpecs = view.findViewById(R.id.tl_technical_specs);
         ivMainImage = view.findViewById(R.id.iv_main_image);
 
@@ -132,8 +158,8 @@ public class IndividualProductFragment extends Fragment {
         //recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
         //
         // saImagePath = dbh.getImagePathFromProducts(mParam3).split(",");
-       /*alImagesPath = new ArrayList<>(Arrays.asList(dbh.getImagePathFromProducts(mParam3).split(",")));
-        Uri uri = Uri.fromFile(new File(alImagesPath.get(0)));
+       //alImagesPath = new ArrayList<>(Arrays.asList(dbh.getImagePathFromProducts(mParam3).split(",")));
+        Uri uri = Uri.fromFile(new File(sImagePath));
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -155,11 +181,49 @@ public class IndividualProductFragment extends Fragment {
 
         ivMainImage.setLayoutParams(params);
 
-        ivMainImage.setImageURI(uri);*/
-        ArrayList<String> alImagesPath = new ArrayList<>();
+        ivMainImage.setImageURI(uri);
+        /*ArrayList<String> alImagesPath = new ArrayList<>();
         IndividualProductRVAdapter individualProductRVAdapter = new IndividualProductRVAdapter(getActivity(), recyclerViewImages,
                 alImagesPath, mListener);
-        recyclerViewImages.setAdapter(individualProductRVAdapter);
+        recyclerViewImages.setAdapter(individualProductRVAdapter);*/
+    }
+
+
+    private void getData(LayoutInflater inflater) {
+        //ArrayList<DataBaseHelper> arrayList = new ArrayList<>(dbh.getAllMainProducts());
+        //ArrayList<DataBaseHelper> arrayList1 = new ArrayList<>(dbh.getAllProductsData1());
+        alTechHeading = new ArrayList<>(Arrays.asList(sTechSpecKey.split(",")));
+        alTechValues = new ArrayList<>(Arrays.asList(sTechSpecValue.split(",")));
+
+        tvTechSpecsHeading = new TextView[alTechHeading.size()];
+        tvTechSpecsValues = new TextView[alTechValues.size()];
+
+        tvTechSpecsValues = new TextView[alTechValues.size()];
+
+        //trHeading = (TableRow) inflater.inflate(R.layout.table_row, null);
+        for (int i = 0; i < alTechHeading.size(); i++) {
+            addDynamicTextViewTechSpecs(i, inflater);
+        }
+    }
+
+    private void addDynamicTextViewTechSpecs(int i, LayoutInflater inflater) {
+        TableRow row = (TableRow) inflater.inflate(R.layout.table_row, null);
+        TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+        params.setMargins(1, 2, 1, 2);
+        params.gravity = Gravity.CENTER;
+
+        TextView tvKey = row.findViewById(R.id.tv_key);
+        tvKey.setText(alTechHeading.get(i));
+
+        TextView tvValue = row.findViewById(R.id.tv_value);
+        try {
+            if (alTechHeading.get(i) != null) {
+                tvValue.setText(alTechValues.get(i));
+                tlTechnicalSpecs.addView(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

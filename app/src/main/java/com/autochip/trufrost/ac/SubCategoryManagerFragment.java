@@ -13,11 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import app_utility.Constants;
+import app_utility.DatabaseHandler;
+import app_utility.DatabaseHelper;
 import app_utility.OnFragmentInteractionListener;
 
 import static app_utility.StaticReferenceClass.OPEN_INDIVIDUAL_PRODUCT_FRAGMENT;
@@ -36,7 +40,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
+    private String sMainCategoryName;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
@@ -46,8 +50,10 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
     RecyclerView rvFirstCategory;
     RecyclerView rvSecondCategory;
     RecyclerView rvProducts;
-    TextView tvHeading;
+    TextView tvHeading, tvDescription;
     String sSubHeading;
+    DatabaseHandler dbHandler;
+    ImageView ivMainImage;
     //LinearLayout llIntro;
     //MaterialCardView mcvSecondRecyclerView;
 
@@ -78,7 +84,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            sMainCategoryName = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         //mListener = this;
@@ -92,13 +98,16 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
         View view = inflater.inflate(R.layout.fragment_sub_category_manager, container, false);
 
         initViews(view);
+        initClasses();
         updateViews();
         //mListener.onActivityCalled(OPEN_FIRST_SUB_FRAGMENT, "");
         return view;
     }
 
     private void initViews(View view) {
+        ivMainImage = view.findViewById(R.id.iv_main_image);
         tvHeading = view.findViewById(R.id.tv_heading);
+        tvDescription = view.findViewById(R.id.tv_main_category_description);
         rvFirstCategory = view.findViewById(R.id.rv_first_category);
 
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -144,14 +153,48 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
 
     }
 
+    private void initClasses(){
+        dbHandler = new DatabaseHandler(getActivity());
+    }
+
     private void updateViews() {
-        ArrayList<String> alFirstSCNames = new ArrayList<>();
-        alFirstSCNames.add("SUPERMARKET REFRIGERATION");
+
+        switch (sMainCategoryName){
+            case "Commercial Kitchens":
+                ivMainImage.setImageResource(R.drawable.commercial_kitchen);
+                break;
+            case "Bar & Pubs":
+                ivMainImage.setImageResource(R.drawable.bars_pubs);
+                break;
+            case "Confectionery & Coffee Shops":
+                ivMainImage.setImageResource(R.drawable.confectionery_coffee_shops);
+                break;
+            case "Bakery":
+                ivMainImage.setImageResource(R.drawable.bakery);
+                break;
+            case "Food Retail":
+                ivMainImage.setImageResource(R.drawable.food_retail);
+                break;
+            case "Food Preservation":
+                ivMainImage.setImageResource(R.drawable.food_preservation);
+                break;
+            case "Bio Medical":
+                ivMainImage.setImageResource(R.drawable.bio_medical);
+                break;
+        }
+
+
+        ArrayList<DatabaseHelper> alDBHelper = new ArrayList<>(dbHandler.getSCOneDescriptionFromMainName(sMainCategoryName.toUpperCase()));
+
+        tvDescription.setText(alDBHelper.get(0).get_main_category_description());
+
+        ArrayList<String> alFirstSCNames = new ArrayList<>(Arrays.asList(alDBHelper.get(0).get_sub_category_first_names().split(",")));
+        /*alFirstSCNames.add("SUPERMARKET REFRIGERATION");
         alFirstSCNames.add("CHEST FREEZERS & COOLERS");
         alFirstSCNames.add("COLD DISPENSERS");
         alFirstSCNames.add("COLD ROOMS");
         alFirstSCNames.add("BAKERY EQUIPMENT");
-        alFirstSCNames.add("COMBI STEAMERS");
+        alFirstSCNames.add("COMBI STEAMERS");*/
 
         SubCategoryFirstRVAdapter subCategoryFirstRVAdapter = new SubCategoryFirstRVAdapter(getActivity(), rvFirstCategory,
                 alFirstSCNames, onSubcategoryManagerListener);
@@ -181,8 +224,10 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
         Constants constants = Constants.values()[nCase];
         switch (constants) {
             case UPDATE_SECOND_ADAPTER:
-                ArrayList<String> alSecondSCNames = new ArrayList<>();
-                alSecondSCNames.add("SUPERMARKET REFRIGERATION");
+                //ArrayList<String> alDBHelper = new ArrayList<>(dbHandler.getSCTwoFromSCOne(sResult));
+
+                ArrayList<String> alSecondSCNames = new ArrayList<>(dbHandler.getSCTwoFromSCOne(sResult));
+                /*alSecondSCNames.add("SUPERMARKET REFRIGERATION");
                 alSecondSCNames.add("CHEST FREEZERS & COOLERS");
                 alSecondSCNames.add("COLD DISPENSERS");
                 alSecondSCNames.add("COLD ROOMS");
@@ -190,7 +235,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
                 alSecondSCNames.add("COMBI STEAMERS");
                 alSecondSCNames.add("COLD ROOMS");
                 alSecondSCNames.add("BAKERY EQUIPMENT");
-                alSecondSCNames.add("COMBI STEAMERS");
+                alSecondSCNames.add("COMBI STEAMERS");*/
 
                 SubCategorySecondRVAdapter subCategorySecondRVAdapter = new SubCategorySecondRVAdapter(getActivity(), rvSecondCategory,
                         alSecondSCNames, mListener);
@@ -200,8 +245,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
                 //mcvSecondRecyclerView.setVisibility(View.VISIBLE);
                 break;
             case UPDATE_PRODUCTS_ADAPTER:
-                mListener.onActivityCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, tvHeading.getText().toString() + ","
-                        + sSubHeading + "," + sResult);
+                mListener.onActivityCalled(OPEN_INDIVIDUAL_PRODUCT_FRAGMENT, sResult); //tvHeading.getText().toString() + ","+ sSubHeading + "," + sResult
                 /*ArrayList<String> alProductNames = new ArrayList<>();
                 alProductNames.add("SUPERMARKET REFRIGERATION");
                 alProductNames.add("CHEST FREEZERS & COOLERS");

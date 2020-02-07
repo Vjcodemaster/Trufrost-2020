@@ -29,6 +29,12 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/commercial_kitchen" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/heading_line_bg"
+                android:layout_height="2dp"/>
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView

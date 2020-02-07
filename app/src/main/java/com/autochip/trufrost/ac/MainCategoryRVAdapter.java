@@ -37,7 +37,7 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
 
         switch (position) {
             case 0:
-                sMainMenuName = "Commercial Kitchen";
+                sMainMenuName = "Commercial Kitchens";
                 holder.tvProductName.setText(sMainMenuName);
                 holder.ivProductsImage.setImageResource(R.drawable.commercial_kitchen);
                 break;
@@ -47,21 +47,26 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
                 holder.tvProductName.setText(sMainMenuName);
                 break;
             case 2:
-                sMainMenuName = "Cake & Sweet shops";
-                holder.ivProductsImage.setImageResource(R.drawable.cake_sweet);
+                sMainMenuName = "Confectionery & Coffee Shops";
+                holder.ivProductsImage.setImageResource(R.drawable.confectionery_coffee_shops);
                 holder.tvProductName.setText(sMainMenuName);
                 break;
             case 3:
+                sMainMenuName = "Bakery";
+                holder.ivProductsImage.setImageResource(R.drawable.bakery);
+                holder.tvProductName.setText(sMainMenuName);
+                break;
+            case 4:
                 sMainMenuName = "Food Retail";
                 holder.ivProductsImage.setImageResource(R.drawable.food_retail);
                 holder.tvProductName.setText(sMainMenuName);
                 break;
-            case 4:
+            case 5:
                 sMainMenuName = "Food Preservation";
                 holder.ivProductsImage.setImageResource(R.drawable.food_preservation);
                 holder.tvProductName.setText(sMainMenuName);
                 break;
-            case 5:
+            case 6:
                 sMainMenuName = "Bio Medical";
                 holder.ivProductsImage.setImageResource(R.drawable.bio_medical);
                 holder.tvProductName.setText(sMainMenuName);
@@ -73,28 +78,28 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
             public void onClick(View v) {
                 switch (position){
                     case 0:
-                        sMainMenuName = "Commercial Kitchen";//
+                        sMainMenuName = "Commercial Kitchens";//
                         break;
                     case 1:
                         sMainMenuName = "Bar & Pubs";
                         break;
                     case 2:
-                        sMainMenuName = "Cake & Sweet shops";
+                        sMainMenuName = "Confectionery & Coffee Shops";
                         break;
                     case 3:
-                        sMainMenuName = "Food Retail";
+                        sMainMenuName = "Bakery";
                         break;
                     case 4:
-                        sMainMenuName = "Food Preservation";//
+                        sMainMenuName = "Food Retail";
                         break;
                     case 5:
+                        sMainMenuName = "Food Preservation";
+                        break;
+                    case 6:
                         sMainMenuName = "Bio Medical";
                         break;
                 }
                 mListener.onActivityCalled(OPEN_FRAGMENT_MANAGER, sMainMenuName);
-                //HomeScreenActivity.onFragmentInteractionListener.onFragmentMessage("OPEN_SUB_CATEGORY_FRAGMENT", position, "", sMainMenuName);
-                //HomeScreenActivity.onFragmentInteractionListener.onFragmentMessage("OPEN_FIRST_SUB_CATEGORY_FRAGMENT", position, "", sMainMenuName);
-
             }
         });
 
@@ -103,7 +108,7 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
 
     @Override
     public int getItemCount() {
-        return 6; //alBeaconInfo.size()
+        return 7; //alBeaconInfo.size()
     }
 
     @Override

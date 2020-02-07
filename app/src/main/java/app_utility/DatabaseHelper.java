@@ -12,11 +12,16 @@ public class DatabaseHelper {
     private String _product_name;
     private String _product_image_path;
     private String _product_tech_specs;
+    private String _product_tech_specs_value;
     private String _product_description;
 
     public DatabaseHelper() {
 
     }
+
+    /*public DatabaseHelper(String main_category_name, String main_category_description, String sub_category_first_names) {
+
+    }*/
 
     public int get_id() {
         return this._id;
@@ -99,6 +104,13 @@ public class DatabaseHelper {
         this._product_tech_specs = product_tech_specs;
     }
 
+    public String get_product_tech_specs_value() {
+        return this._product_tech_specs_value;
+    }
+
+    public void set_product_tech_specs_value(String product_tech_specs_value) {
+        this._product_tech_specs_value = product_tech_specs_value;
+    }
     public String get_product_description() {
         return this._product_description;
     }
