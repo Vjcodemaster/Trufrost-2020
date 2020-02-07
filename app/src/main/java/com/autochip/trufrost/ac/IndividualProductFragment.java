@@ -1,14 +1,17 @@
 package com.autochip.trufrost.ac;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -19,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -61,7 +65,16 @@ public class IndividualProductFragment extends Fragment {
     String sDescription;
 
     ArrayList<String> alTechHeading;
-    ArrayList<String> alTechValues ;
+    ArrayList<String> alTechValues;
+
+    Dialog dialogViewPager;
+    ImageView ivBlurImage;
+    ViewPager mViewPagerSlideShow;
+    ImageView ivLeftArrow;
+    ImageView ivRightArrow;
+    ArrayList<String> alImagesPath = new ArrayList<>();
+
+    int imagePathPosition = 0;
 
 
     public IndividualProductFragment() {
@@ -94,12 +107,12 @@ public class IndividualProductFragment extends Fragment {
         }
 
         Bundle bundle = this.getArguments();
-        if(bundle!=null){
-            sProductName  = bundle.getString("product_name");
-            sImagePath  = bundle.getString("image_path");
-            sTechSpecKey  = bundle.getString("tech_spec_key");
-            sTechSpecValue  = bundle.getString("tech_spec_value");
-            sDescription  = bundle.getString("description");
+        if (bundle != null) {
+            sProductName = bundle.getString("product_name");
+            sImagePath = bundle.getString("image_path");
+            sTechSpecKey = bundle.getString("tech_spec_key");
+            sTechSpecValue = bundle.getString("tech_spec_value");
+            sDescription = bundle.getString("description");
         }
     }
 
@@ -126,8 +139,8 @@ public class IndividualProductFragment extends Fragment {
         ivMainImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*initImagePreviewDialog();
-                dialogViewPager.show();*/
+                initImagePreviewDialog();
+                dialogViewPager.show();
             }
         });
 
@@ -158,7 +171,7 @@ public class IndividualProductFragment extends Fragment {
         //recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
         //
         // saImagePath = dbh.getImagePathFromProducts(mParam3).split(",");
-       //alImagesPath = new ArrayList<>(Arrays.asList(dbh.getImagePathFromProducts(mParam3).split(",")));
+        //alImagesPath = new ArrayList<>(Arrays.asList(dbh.getImagePathFromProducts(mParam3).split(",")));
         Uri uri = Uri.fromFile(new File(sImagePath));
 
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -168,7 +181,7 @@ public class IndividualProductFragment extends Fragment {
         int imageWidth = options.outWidth;
         int height;
         int width;
-        if(imageHeight>imageWidth){
+        if (imageHeight > imageWidth) {
             height = (int) (250f);
             width = (int) (210f);
         } else {
@@ -223,6 +236,107 @@ public class IndividualProductFragment extends Fragment {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    private void initImagePreviewDialog() {
+        LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.dialog_view_pager, null);
+        Rect displayRectangle = new Rect();
+        Window window = getActivity().getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        layout.setMinimumWidth((int) (displayRectangle.width() * 0.9f));
+        layout.setMinimumHeight((int) (displayRectangle.height() * 0.9f));
+        dialogViewPager = new Dialog(getActivity());
+        dialogViewPager.setContentView(layout);
+        dialogViewPager.setCancelable(true);
+
+        //TextView tvHeading = dialogViewPager.findViewById(R.id.tv_readmore_heading);
+        TextView tvClosePreview = dialogViewPager.findViewById(R.id.tv_close_dialog);
+        ivBlurImage = dialogViewPager.findViewById(R.id.iv_blur_bg);
+
+        tvClosePreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogViewPager.dismiss();
+                alImagesPath = new ArrayList<>();
+            }
+        });
+        mViewPagerSlideShow = dialogViewPager.findViewById(R.id.viewpager_image_dialog);
+        mViewPagerSlideShow.setOffscreenPageLimit(3);
+
+
+        ivLeftArrow = dialogViewPager.findViewById(R.id.iv_dialog_left_arrow);
+        ivRightArrow = dialogViewPager.findViewById(R.id.iv_dialog_right_arrow);
+
+        ivLeftArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewPagerSlideShow.setCurrentItem(mViewPagerSlideShow.getCurrentItem() - 1);
+            }
+        });
+
+        ivRightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewPagerSlideShow.setCurrentItem(mViewPagerSlideShow.getCurrentItem() + 1);
+            }
+        });
+
+        mViewPagerSlideShow.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                handleArrow(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        /*mViewPagerSlideShow.setPageTransformer(false, new ViewPager.PageTransformer()
+
+        {
+            @Override
+            public void transformPage(View page, float position) {
+                ZoomOutPageTransformer zoomOutPageTransformer = new ZoomOutPageTransformer();
+                zoomOutPageTransformer.transformPage(page, position);
+            }
+        });*/
+
+        alImagesPath.add(sImagePath);
+        final DialogImagePagerAdapter dialogImagePagerAdapter = new DialogImagePagerAdapter(getActivity(), alImagesPath);
+        mViewPagerSlideShow.setAdapter(dialogImagePagerAdapter);
+        mViewPagerSlideShow.setCurrentItem(imagePathPosition);
+        handleArrow(imagePathPosition);
+        //takeScreenshot();
+        /*Typeface lightFace = Typeface.createFromAsset(getResources().getAssets(), "fonts/myriad_pro_light.ttf");
+        Typeface regularFace = Typeface.createFromAsset(getResources().getAssets(), "fonts/myriad_pro_regular.ttf");
+        tvHeading.setTypeface(regularFace);*/
+        //tvSubHeading.setTypeface(lightFace);
+        //tvDescription.setTypeface(lightFace);
+    }
+
+    private void handleArrow(int position) {
+        if (position == 0 && mViewPagerSlideShow.getAdapter().getCount() == 1) {
+            ivLeftArrow.setVisibility(View.GONE);
+            ivRightArrow.setVisibility(View.GONE);
+        } else if (position == 0 && mViewPagerSlideShow.getAdapter().getCount() > 1) {
+            ivLeftArrow.setVisibility(View.GONE);
+            ivRightArrow.setVisibility(View.VISIBLE);
+        } else if (position == alImagesPath.size() - 1) {
+            ivRightArrow.setVisibility(View.GONE);
+            ivLeftArrow.setVisibility(View.VISIBLE);
+        } else {
+            ivLeftArrow.setVisibility(View.VISIBLE);
+            ivRightArrow.setVisibility(View.VISIBLE);
         }
     }
 

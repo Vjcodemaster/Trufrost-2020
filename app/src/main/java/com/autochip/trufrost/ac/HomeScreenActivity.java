@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,6 +40,7 @@ import com.google.android.material.card.MaterialCardView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -46,6 +49,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -55,11 +59,13 @@ import app_utility.DatabaseHandler;
 import app_utility.DatabaseHelper;
 import app_utility.OnFragmentInteractionListener;
 import app_utility.PermissionHandler;
+import app_utility.SecondSCPopupWindow;
 import app_utility.SharedPreferencesClass;
 
 import static app_utility.PermissionHandler.WRITE_PERMISSION;
 import static app_utility.PermissionHandler.hasPermissions;
 import static app_utility.StaticReferenceClass.UPDATE_PROGRESS_STATUS;
+import static app_utility.StaticReferenceClass.UPDATE_SUB_HEADING;
 import static app_utility.StaticReferenceClass.WRITE_PERMISSION_CODE;
 
 public class HomeScreenActivity extends AppCompatActivity implements OnFragmentInteractionListener {
@@ -81,6 +87,8 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
     Toolbar toolbar;
 
     private int nPermissionFlag = 0;
+    ArrayList<String> alSecondSCNames;
+    View popupView;
 
 
     @Override
@@ -163,6 +171,28 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 handler.postDelayed(this, delay);
             }
         }, delay);
+
+        tvSubHeading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fl_container);
+                //currentFragment.getClass().getName();
+                //String fragmentTag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
+                if (currentFragment.getClass().getName().equals(AllProductsFragment.class.getName())) {
+                    SecondSCPopupWindow secondSCPopupWindow = new SecondSCPopupWindow(HomeScreenActivity.this, alSecondSCNames, mListener);
+                    secondSCPopupWindow.mPopupWindowSort.setOutsideTouchable(true);
+                    secondSCPopupWindow.mPopupWindowSort.setOutsideTouchable(true);
+                    secondSCPopupWindow.mPopupWindowSort.setFocusable(true);
+                    secondSCPopupWindow.mPopupWindowSort.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                    //whereToPlacePopupWindow("SECOND_SC");
+                    popupView = findViewById(R.id.tv_sub_heading);
+                    secondSCPopupWindow.mPopupWindowSort.showAsDropDown(popupView);
+                }
+
+
+            }
+        });
     }
 
     @Override
@@ -184,7 +214,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
         rvMainCategory.setAdapter(imageViewRVAdapter);
     }
 
-    private void downloadData(){
+    private void downloadData() {
         if (!sharedPreferencesClass.getDownloadStatus()) {
             circularProgressBar = new AnimationProgressBar(HomeScreenActivity.this);
             circularProgressBar.setCanceledOnTouchOutside(false);
@@ -221,6 +251,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             anim.start();
         }
     }
+
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -279,6 +310,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             downloadData();
         }
     }
+
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
@@ -298,12 +330,12 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
 
     @Override
     public void onFragmentCalled(int nCase, String sResult) {
-        Constants constants = Constants.values()[nCase];
+        /*Constants constants = Constants.values()[nCase];
         switch (constants) {
             case OPEN_FRAGMENT_MANAGER:
                 Toast.makeText(HomeScreenActivity.this, "Triggered", Toast.LENGTH_LONG).show();
                 break;
-        }
+        }*/
     }
 
     @Override
@@ -329,6 +361,10 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 ft.addToBackStack(null);
                 ft.commit();
                 tvSubHeading.setText(sResult);
+
+                //this remove will delete the current selected second category from arraylist to make sure
+                //dialog box only shows the one not selected
+                alSecondSCNames.remove(tvSubHeading.getText().toString().trim());
                 mcvSubHeading.setVisibility(View.VISIBLE);
                 break;
             case OPEN_INDIVIDUAL_PRODUCT_FRAGMENT:
@@ -337,12 +373,12 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
-           /* case MAIN_CATEGORY_UPDATE:
-                break;*/
-            /*case SUB_CATEGORY_HEADING_UPDATE:
+            case UPDATE_SECOND_SC_TO_ACTIVITY:
+                alSecondSCNames = new ArrayList<>(Arrays.asList(sResult.split(",")));
+                break;
+            case UPDATE_SUB_HEADING:
                 tvSubHeading.setText(sResult);
-                mcvSubHeading.setVisibility(View.VISIBLE);
-                break;*/
+                break;
         }
     }
 
@@ -433,7 +469,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                     //alSubCategoryThreeNames.add(sSubCategoryThreeName);
 
                                     Log.e(sMainCategoryName, "fromSub_CAT_THREE");
-                                    Log.e(sMainCategoryName, sSubCategoryOneName + " " + sSubCategoryTwoName+ " " +sSubCategoryThreeName);
+                                    Log.e(sMainCategoryName, sSubCategoryOneName + " " + sSubCategoryTwoName + " " + sSubCategoryThreeName);
                                     JSONArray jaProducts = joSubCategoryThree.getJSONArray("product_name"); //joSubCategoryTwo
                                     for (int m = 0; m < jaProducts.length(); m++) {
                                         JSONObject joProducts = jaProducts.getJSONObject(m);
@@ -457,7 +493,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                 }
                             } else {
                                 Log.e(sMainCategoryName, "fromSub_CAT_TWO");
-                                Log.e(sMainCategoryName, sSubCategoryOneName +" " + sSubCategoryTwoName);
+                                Log.e(sMainCategoryName, sSubCategoryOneName + " " + sSubCategoryTwoName);
                                 JSONArray jaProducts = joSubCategoryTwo.getJSONArray("product_name");
                                 for (int m = 0; m < jaProducts.length(); m++) {
                                     JSONObject joProducts = jaProducts.getJSONObject(m);

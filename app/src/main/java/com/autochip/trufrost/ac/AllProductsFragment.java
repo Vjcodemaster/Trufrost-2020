@@ -2,6 +2,7 @@ package com.autochip.trufrost.ac;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 
 import app_utility.Constants;
@@ -28,6 +30,7 @@ import app_utility.DatabaseHelper;
 import app_utility.OnFragmentInteractionListener;
 
 import static app_utility.Constants.OPEN_INDIVIDUAL_PRODUCT_FRAGMENT;
+import static app_utility.StaticReferenceClass.SEND_SECOND_SC_TO_ALL_FRAGMENT;
 
 
 /**
@@ -46,7 +49,7 @@ public class AllProductsFragment extends Fragment implements OnFragmentInteracti
     private String sSubCategorySecond;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    public static OnFragmentInteractionListener mListener;
 
     RecyclerView rvAllProducts;
 
@@ -183,6 +186,10 @@ public class AllProductsFragment extends Fragment implements OnFragmentInteracti
                 ft.add(R.id.fl_container, individualProductFragment);
                 ft.addToBackStack(null);
                 ft.commit();
+                break;
+            case SEND_SECOND_SC_TO_ALL_FRAGMENT:
+                this.sSubCategorySecond = sResult;
+                updateViews();
                 break;
         }
 

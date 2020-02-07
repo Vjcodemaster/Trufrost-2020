@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -28,6 +29,7 @@ import app_utility.DatabaseHelper;
 import app_utility.OnFragmentInteractionListener;
 
 import static app_utility.StaticReferenceClass.OPEN_INDIVIDUAL_PRODUCT_FRAGMENT;
+import static app_utility.StaticReferenceClass.UPDATE_SECOND_SC_TO_ACTIVITY;
 
 
 /**
@@ -246,6 +248,10 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
                 SubCategorySecondRVAdapter subCategorySecondRVAdapter = new SubCategorySecondRVAdapter(getActivity(), rvSecondCategory,
                         alSecondSCNames, mListener);
                 rvSecondCategory.setAdapter(subCategorySecondRVAdapter);
+
+                String sSecondNameByComma = android.text.TextUtils.join(",", alSecondSCNames);
+                mListener.onActivityCalled(UPDATE_SECOND_SC_TO_ACTIVITY, sSecondNameByComma);
+
 
                 //llIntro.setVisibility(View.GONE);
                 //mcvSecondRecyclerView.setVisibility(View.VISIBLE);
