@@ -42,7 +42,7 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
                 holder.ivProductsImage.setImageResource(R.drawable.commercial_kitchen);
                 break;
             case 1:
-                sMainMenuName = "Bar & Pubs";
+                sMainMenuName = "Bars & Pubs";
                 holder.ivProductsImage.setImageResource(R.drawable.bars_pubs);
                 holder.tvProductName.setText(sMainMenuName);
                 break;
@@ -81,7 +81,7 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
                         sMainMenuName = "Commercial Kitchens";//
                         break;
                     case 1:
-                        sMainMenuName = "Bar & Pubs";
+                        sMainMenuName = "Bars & Pubs";
                         break;
                     case 2:
                         sMainMenuName = "Confectionery & Coffee Shops";

@@ -35,9 +35,8 @@
                     android:id="@+id/iv_main_image"
                     android:layout_width="325dp"
                     android:layout_height="225dp"
-                    android:layout_marginStart="10dp"
                     android:scaleType="fitCenter"
-                    android:foreground="?attr/selectableItemBackground"
+                    android:background="?android:selectableItemBackground"
                     android:contentDescription="@string/app_name" />
 
             </androidx.cardview.widget.CardView>
@@ -62,7 +61,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textAppearance="@android:style/TextAppearance.Medium"
-                android:textColor="@color/almostBlack" />
+                android:textColor="@color/colorSkyBlue" />
 
             <View
                 android:layout_width="325dp"

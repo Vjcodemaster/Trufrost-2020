@@ -1,6 +1,7 @@
 package com.autochip.trufrost.ac;
 
 import android.Manifest;
+import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -13,13 +14,17 @@ import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -54,6 +59,7 @@ import app_utility.SharedPreferencesClass;
 
 import static app_utility.PermissionHandler.WRITE_PERMISSION;
 import static app_utility.PermissionHandler.hasPermissions;
+import static app_utility.StaticReferenceClass.UPDATE_PROGRESS_STATUS;
 import static app_utility.StaticReferenceClass.WRITE_PERMISSION_CODE;
 
 public class HomeScreenActivity extends AppCompatActivity implements OnFragmentInteractionListener {
@@ -71,6 +77,8 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
 
     AnimationProgressBar circularProgressBar;
     SharedPreferencesClass sharedPreferencesClass;
+
+    Toolbar toolbar;
 
     private int nPermissionFlag = 0;
 
@@ -99,6 +107,9 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
     }
 
     public void initViews() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         tvHeading = findViewById(R.id.tv_heading);
         tvSubHeading = findViewById(R.id.tv_sub_heading);
         mcvSubHeading = findViewById(R.id.mcv_sub_heading);
@@ -152,23 +163,18 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 handler.postDelayed(this, delay);
             }
         }, delay);
+    }
 
-        /*Fragment fragmentSubCategoryFirst = SubCategoryManagerFragment.newInstance("","");
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.ll_container, fragmentSubCategoryFirst);
-        ft.addToBackStack(null);
-        ft.commit();*/
-        /*
-        Handler handler = new Handler();
-        final Runnable r = new Runnable() {
-            public void run() {
-                // force transform with a 1 pixel nudge
-                mViewPagerSlideShow.beginFakeDrag();
-                mViewPagerSlideShow.fakeDragBy(0.1f);
-                mViewPagerSlideShow.endFakeDrag();
-            }
-        };
-        handler.postDelayed(r, 30);*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void updateViews() {
@@ -184,11 +190,35 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             circularProgressBar.setCanceledOnTouchOutside(false);
             circularProgressBar.setCancelable(false);
             circularProgressBar.show();
+            circularProgressBar.onDialogInterfaceListener.onStatusChanged(UPDATE_PROGRESS_STATUS, "images");
             TrufrostAsyncTask trufrostAsyncTask = new TrufrostAsyncTask();
             trufrostAsyncTask.execute("1");
         } else {
             initViews();
             updateViews();
+        }
+    }
+
+    /*
+    To reveal a previously invisible view using this effect:
+    below method show is used to produce circular animation effect on home screen buttons.
+    */
+    private void show(final View mParentView) {
+        // get the center for the clipping circle
+        int cx = (mParentView.getLeft() + mParentView.getRight()) / 2;
+        int cy = (mParentView.getTop() + mParentView.getBottom()) / 2;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // get the final radius for the clipping circle
+            int finalRadius = Math.max(mParentView.getWidth(), mParentView.getHeight());
+
+            //create the animator for this view (the start radius is zero)
+            Animator anim;
+            anim = ViewAnimationUtils.createCircularReveal(mParentView, cx, cy,
+                    0, finalRadius);
+            anim.setDuration(350);
+            mParentView.setVisibility(View.VISIBLE);
+            anim.start();
         }
     }
 
@@ -258,8 +288,10 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             if (currentFragment.getClass().getName().equals(AllProductsFragment.class.getName())) {
                 mcvSubHeading.setVisibility(View.GONE);
             }
-        } else
+        } else {
             llHeadingParent.setVisibility(View.GONE);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
 
         super.onBackPressed();
     }
@@ -276,15 +308,18 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
 
     @Override
     public void onActivityCalled(int nCase, String sResult) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Constants constants = Constants.values()[nCase];
         switch (constants) {
             case OPEN_FRAGMENT_MANAGER:
                 //Toast.makeText(HomeScreenActivity.this, "Triggered", Toast.LENGTH_LONG).show();
+                FrameLayout fl = findViewById(R.id.fl_container);
                 Fragment fragmentSubCategoryFirst = SubCategoryManagerFragment.newInstance(sResult, "");
                 ft.add(R.id.fl_container, fragmentSubCategoryFirst);
                 ft.addToBackStack(null);
                 ft.commit();
+                show(fl);
                 tvHeading.setText(sResult.trim());
                 llHeadingParent.setVisibility(View.VISIBLE);
                 break;
@@ -304,10 +339,10 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 break;
            /* case MAIN_CATEGORY_UPDATE:
                 break;*/
-            case SUB_CATEGORY_HEADING_UPDATE:
+            /*case SUB_CATEGORY_HEADING_UPDATE:
                 tvSubHeading.setText(sResult);
                 mcvSubHeading.setVisibility(View.VISIBLE);
-                break;
+                break;*/
         }
     }
 
@@ -327,7 +362,6 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 case 2:
                     fetchDataFromJsonFile();
                     break;
-
             }
 
             return null;
@@ -340,15 +374,24 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                 case 1:
                     TrufrostAsyncTask trufrostAsyncTask = new TrufrostAsyncTask();
                     trufrostAsyncTask.execute("2");
+                    circularProgressBar.onDialogInterfaceListener.onStatusChanged(UPDATE_PROGRESS_STATUS, "contents and information");
                     break;
                 case 2:
+                    circularProgressBar.onDialogInterfaceListener.onStatusChanged(UPDATE_PROGRESS_STATUS, "completed");
                     initViews();
                     updateViews();
                     sharedPreferencesClass.setDownloadStatus(true);
 
-                    if (circularProgressBar != null) {
-                        circularProgressBar.dismiss();
-                    }
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (circularProgressBar != null) {
+                                circularProgressBar.dismiss();
+                            }
+                        }
+                    }, 800);
+
                     break;
             }
         }
@@ -370,6 +413,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                     String sMainDescription = joItems.getString("main_description");
 
                     JSONArray jaSubCategoryOne = joItems.getJSONArray("sub_cat_one");
+                    alSubCategoryOneNames = new ArrayList<>();
                     for (int j = 0; j < jaSubCategoryOne.length(); j++) {
                         JSONObject joSubCategoryOne = jaSubCategoryOne.getJSONObject(j);
                         String sSubCategoryOneName = joSubCategoryOne.getString("name");

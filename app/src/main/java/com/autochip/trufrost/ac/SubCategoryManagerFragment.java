@@ -1,6 +1,8 @@
 package com.autochip.trufrost.ac;
 
+import android.animation.Animator;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -153,17 +156,17 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
 
     }
 
-    private void initClasses(){
+    private void initClasses() {
         dbHandler = new DatabaseHandler(getActivity());
     }
 
     private void updateViews() {
 
-        switch (sMainCategoryName){
+        switch (sMainCategoryName) {
             case "Commercial Kitchens":
                 ivMainImage.setImageResource(R.drawable.commercial_kitchen);
                 break;
-            case "Bar & Pubs":
+            case "Bars & Pubs":
                 ivMainImage.setImageResource(R.drawable.bars_pubs);
                 break;
             case "Confectionery & Coffee Shops":
@@ -186,9 +189,10 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
 
         ArrayList<DatabaseHelper> alDBHelper = new ArrayList<>(dbHandler.getSCOneDescriptionFromMainName(sMainCategoryName.toUpperCase()));
 
-        tvDescription.setText(alDBHelper.get(0).get_main_category_description());
+        if(alDBHelper.size()>=1) {
+            tvDescription.setText(alDBHelper.get(0).get_main_category_description());
 
-        ArrayList<String> alFirstSCNames = new ArrayList<>(Arrays.asList(alDBHelper.get(0).get_sub_category_first_names().split(",")));
+            ArrayList<String> alFirstSCNames = new ArrayList<>(Arrays.asList(alDBHelper.get(0).get_sub_category_first_names().split(",")));
         /*alFirstSCNames.add("SUPERMARKET REFRIGERATION");
         alFirstSCNames.add("CHEST FREEZERS & COOLERS");
         alFirstSCNames.add("COLD DISPENSERS");
@@ -196,10 +200,12 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
         alFirstSCNames.add("BAKERY EQUIPMENT");
         alFirstSCNames.add("COMBI STEAMERS");*/
 
-        SubCategoryFirstRVAdapter subCategoryFirstRVAdapter = new SubCategoryFirstRVAdapter(getActivity(), rvFirstCategory,
-                alFirstSCNames, onSubcategoryManagerListener);
-        rvFirstCategory.setAdapter(subCategoryFirstRVAdapter);
+            SubCategoryFirstRVAdapter subCategoryFirstRVAdapter = new SubCategoryFirstRVAdapter(getActivity(), rvFirstCategory,
+                    alFirstSCNames, onSubcategoryManagerListener);
+            rvFirstCategory.setAdapter(subCategoryFirstRVAdapter);
+        }
     }
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -225,7 +231,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
         switch (constants) {
             case UPDATE_SECOND_ADAPTER:
                 //ArrayList<String> alDBHelper = new ArrayList<>(dbHandler.getSCTwoFromSCOne(sResult));
-
+                //showCircularEffect(rvSecondCategory);
                 ArrayList<String> alSecondSCNames = new ArrayList<>(dbHandler.getSCTwoFromSCOne(sResult));
                 /*alSecondSCNames.add("SUPERMARKET REFRIGERATION");
                 alSecondSCNames.add("CHEST FREEZERS & COOLERS");

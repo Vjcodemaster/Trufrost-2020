@@ -26,6 +26,7 @@ public class SubCategoryFirstRVAdapter extends RecyclerView.Adapter<SubCategoryF
     ArrayList<String> alSubCategoryNames;
     private OnFragmentInteractionListener mListener;
 
+    boolean isFirstTime =true;
     TextView tvPrevious;
 
     public SubCategoryFirstRVAdapter(Context context, RecyclerView recyclerView, ArrayList<String> alSubCategoryNames,
@@ -64,7 +65,18 @@ public class SubCategoryFirstRVAdapter extends RecyclerView.Adapter<SubCategoryF
             }
         });
 
-
+        if(isFirstTime && position==0){
+            holder.tvProductName.setBackgroundColor(context.getResources().getColor(R.color.colorSkyBlue));
+            holder.tvProductName.setTextColor(context.getResources().getColor(android.R.color.white));
+            if(tvPrevious!=null && tvPrevious!=holder.tvProductName) {
+                tvPrevious.setBackgroundColor(context.getResources().getColor(android.R.color.white));
+                tvPrevious.setTextColor(context.getResources().getColor(R.color.almostBlack));
+            }
+            mListener.onFragmentCalled(UPDATE_SECOND_ADAPTER, holder.tvProductName.getText().toString());
+            //HomeScreenActivity.onFragmentInteractionListener.onFragmentMessage("OPEN_PRODUCTS_FRAGMENT", position, "", holder.tvProductName.getText().toString());
+            tvPrevious = holder.tvProductName;
+            isFirstTime = false;
+        }
     }
 
     @Override

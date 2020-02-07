@@ -1,8 +1,11 @@
 package com.autochip.trufrost.ac;
 
+import android.animation.Animator;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -58,11 +61,61 @@ public class SubCategorySecondRVAdapter extends RecyclerView.Adapter<SubCategory
                 }
                 mListener.onActivityCalled(OPEN_ALL_PRODUCTS, holder.tvProductName.getText().toString());
                 tvPrevious = holder.tvProductName;
+                showCircularEffect(recyclerView, holder.tvProductName);
                 //mListener.onFragmentCalled(UPDATE_PRODUCTS_ADAPTER, holder.tvProductName.getText().toString());
             }
         });
 
     }
+
+    private void showCircularEffect(final View mParentView, View actualView) {
+        // get the center for the clipping circle
+        //int cx = (actualView.getLeft() + actualView.getRight()) / 2;
+        //int cy = (actualView.getTop() + actualView.getBottom()) / 2;
+
+        int cx = actualView.getWidth() / 2;
+        int cy = actualView.getHeight() / 2;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // get the final radius for the clipping circle
+            int finalRadius = Math.max(mParentView.getWidth(), mParentView.getHeight());
+            float initialRadius = (float) Math.hypot(cx, cy);
+
+            //create the animator for this view (the start radius is zero)
+            Animator anim;
+            anim = ViewAnimationUtils.createCircularReveal(mParentView, cx, cy,
+                    initialRadius, finalRadius);
+            anim.setDuration(300);
+            mParentView.setVisibility(View.VISIBLE);
+            anim.start();
+        }
+    }
+
+    /*private void showCircularEffect(final View mParentView, View actualView) {
+        // get the center for the clipping circle
+        //int cx = (actualView.getLeft() + actualView.getRight()) / 2;
+        //int cy = (actualView.getTop() + actualView.getBottom()) / 2;
+
+        //int cx = actualView.getWidth() / 2;
+        //int cy = actualView.getHeight() / 2;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // get the final radius for the clipping circle
+            int cx = actualView.getWidth() / 2;
+            int cy = actualView.getHeight() / 2;
+
+            // get the initial radius for the clipping circle
+            float initialRadius = (float) Math.hypot(cx, cy);
+            int finalRadius = Math.max(mParentView.getWidth(), mParentView.getHeight());
+
+            // create the animation (the final radius is zero)
+            Animator anim = ViewAnimationUtils.createCircularReveal(actualView, cx, cy, initialRadius, finalRadius);
+
+            // start the animation
+            anim.setDuration(350);
+            anim.start();
+        }
+    }*/
 
     @Override
     public int getItemCount() {
