@@ -260,7 +260,6 @@ public class IndividualProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialogViewPager.dismiss();
-                alImagesPath = new ArrayList<>();
             }
         });
         mViewPagerSlideShow = dialogViewPager.findViewById(R.id.viewpager_image_dialog);
@@ -310,7 +309,7 @@ public class IndividualProductFragment extends Fragment {
                 zoomOutPageTransformer.transformPage(page, position);
             }
         });*/
-
+        alImagesPath = new ArrayList<>();
         alImagesPath.add(sImagePath);
         final DialogImagePagerAdapter dialogImagePagerAdapter = new DialogImagePagerAdapter(getActivity(), alImagesPath);
         mViewPagerSlideShow.setAdapter(dialogImagePagerAdapter);
