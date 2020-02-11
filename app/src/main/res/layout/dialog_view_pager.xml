@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         android:id="@+id/tv_readmore_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom|center"
         android:text="Product Images"
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:textColor="@color/colorPrimaryDark" />
@@ -56,14 +56,14 @@
         card_view:cardElevation="@dimen/layout_activity_detail_card_elevation">-->
 
         <FrameLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager_image_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackground"
                 tools:targetApi="lollipop" />
 
@@ -107,13 +107,15 @@
     <!--</androidx.cardview.widget.CardView>-->
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_blur_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY" />
     </FrameLayout>
@@ -128,4 +130,4 @@
         android:textColor="@color/tundoraGray"/>-->
 
 
-</FrameLayout>
+</LinearLayout>

@@ -96,7 +96,7 @@ public class MainCategoryRVAdapter extends RecyclerView.Adapter<MainCategoryRVAd
                         sMainMenuName = "Food Preservation";
                         break;
                     case 6:
-                        sMainMenuName = "Bio Medical";
+                        sMainMenuName = "BioMedical";
                         break;
                 }
                 mListener.onActivityCalled(OPEN_FRAGMENT_MANAGER, sMainMenuName);

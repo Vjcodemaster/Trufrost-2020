@@ -201,6 +201,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public List<DatabaseHelper> getProductsFromSCTwo(String sSubCategoryTwo) {
         List<DatabaseHelper> dataBaseHelperList = new ArrayList<>();
+        ArrayList<String> alProductNames = new ArrayList<>();
         //ArrayList<String> alSubCategoryOneNames = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT " + KEY_PRODUCT_NAME + "," + KEY_PRODUCT_IMAGE_PATH + "," + KEY_PRODUCT_TECH_SPECS_KEY +","
@@ -219,7 +220,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 dataBaseHelper.set_product_tech_specs_value(cursor.getString(3));
                 dataBaseHelper.set_product_description(cursor.getString(4));
                 // Adding data to list
-                dataBaseHelperList.add(dataBaseHelper);
+
+
+                String s = dataBaseHelper.get_product_name();
+
+                if(!alProductNames.contains(s)) {
+                    alProductNames.add(s);
+                    dataBaseHelperList.add(dataBaseHelper);
+                }
+
                 /*String s = String.valueOf(dataBaseHelperList.get(cursor.getPosition()).get_sub_category_first_names());
                 alSubCategoryOneNames.add(s);*/
             } while (cursor.moveToNext());

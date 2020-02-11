@@ -183,7 +183,7 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
             case "Food Preservation":
                 ivMainImage.setImageResource(R.drawable.food_preservation);
                 break;
-            case "Bio Medical":
+            case "BioMedical":
                 ivMainImage.setImageResource(R.drawable.bio_medical);
                 break;
         }

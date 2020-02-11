@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -223,7 +225,7 @@ public class IndividualProductFragment extends Fragment {
         TableRow row = (TableRow) inflater.inflate(R.layout.table_row, null);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
         params.setMargins(1, 2, 1, 2);
-        params.gravity = Gravity.CENTER;
+        params.gravity = Gravity.START;
 
         TextView tvKey = row.findViewById(R.id.tv_key);
         tvKey.setText(alTechHeading.get(i));
@@ -255,6 +257,8 @@ public class IndividualProductFragment extends Fragment {
         //TextView tvHeading = dialogViewPager.findViewById(R.id.tv_readmore_heading);
         TextView tvClosePreview = dialogViewPager.findViewById(R.id.tv_close_dialog);
         ivBlurImage = dialogViewPager.findViewById(R.id.iv_blur_bg);
+        ivBlurImage.setOnTouchListener(new ImageMatrixTouchHandler(getContext()));
+
 
         tvClosePreview.setOnClickListener(new View.OnClickListener() {
             @Override

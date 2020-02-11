@@ -47,6 +47,8 @@ public class SecondSCPopupWindow {
 
     private  ArrayList<String> alSecondSC;
 
+    private View view;
+
 
     public SecondSCPopupWindow(Context context, ArrayList<String> alSecondSC, OnFragmentInteractionListener onFragmentInteractionListener) {
         this.context = context;
@@ -62,6 +64,7 @@ public class SecondSCPopupWindow {
 
         llTVParent = mFilterMenuLayout.findViewById(R.id.ll_tv_parent);
         tvSecondSCNames = new TextView[alSecondSC.size()];
+
 
         for (int i = 0; i <alSecondSC.size(); i++) {
             addDynamicContents(i);
@@ -87,6 +90,12 @@ public class SecondSCPopupWindow {
         tvSecondSCNames[i].setLayoutParams(params);
         tvSecondSCNames[i].setTextColor(ResourcesCompat.getColor(context.getResources(), android.R.color.white, null));
 
-        llTVParent.addView(tvSecondSCNames[i], new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        view = new View(context);
+        view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryDark));
+        LinearLayout.LayoutParams viewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+        view.setLayoutParams(viewParams);
+
+        llTVParent.addView(tvSecondSCNames[i]);
+        llTVParent.addView(view);
     }
 }

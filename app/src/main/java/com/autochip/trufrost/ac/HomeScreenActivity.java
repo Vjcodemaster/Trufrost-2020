@@ -483,7 +483,12 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                         databaseHelper.set_sub_category_second_name(sSubCategoryTwoName);
                                         databaseHelper.set_sub_category_third_name(sSubCategoryThreeName);
                                         databaseHelper.set_product_name(sProductName);
-                                        databaseHelper.set_product_image_path(sStorageLocation + File.separator + sProductName + ".jpg");
+
+                                        String sFinalProductName = sProductName;
+                                        if(sProductName.contains("/")){
+                                            sFinalProductName = sProductName.replace("/", "#");
+                                        }
+                                        databaseHelper.set_product_image_path(sStorageLocation + File.separator + sFinalProductName + ".jpg");
                                         databaseHelper.set_product_tech_specs(sTechSpecKey);
                                         databaseHelper.set_product_tech_specs_value(sTechSpecValue);
                                         databaseHelper.set_product_description(sProductDescription);
@@ -507,7 +512,14 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                     databaseHelper.set_sub_category_first_name(sSubCategoryOneName);
                                     databaseHelper.set_sub_category_second_name(sSubCategoryTwoName);
                                     databaseHelper.set_product_name(sProductName);
-                                    databaseHelper.set_product_image_path(sStorageLocation + File.separator + sProductName + ".jpg");
+
+                                    String sFinalProductName = sProductName;
+                                    if(sProductName.contains("/")){
+                                        sFinalProductName = sProductName.replace("/", " ");
+                                    }
+
+                                    databaseHelper.set_product_image_path(sStorageLocation + File.separator + sFinalProductName + ".jpg");
+                                    //databaseHelper.set_product_image_path(sStorageLocation + File.separator + sProductName + ".jpg");
                                     databaseHelper.set_product_tech_specs(sTechSpecKey);
                                     databaseHelper.set_product_tech_specs_value(sTechSpecValue);
                                     databaseHelper.set_product_description(sProductDescription);
@@ -522,8 +534,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                     databaseHelper.set_main_category_description(sMainDescription);
                     databaseHelper.set_sub_category_first_names(TextUtils.join(",", alSubCategoryOneNames));
                     dbHandler.addDataToMainCategoryTable(databaseHelper);
-
-                    int n = dbHandler.getRecordsCount();
+                    //int n = dbHandler.getRecordsCount();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

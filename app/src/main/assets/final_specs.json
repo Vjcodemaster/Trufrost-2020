@@ -2683,7 +2683,7 @@
               ]
             },
             {
-              "name": "JAI JEERA/BUTTERMILK DISPENSERS",
+              "name": "JAL JEERA/BUTTERMILK DISPENSERS",
               "product_name": [
                 {
                   "name": "JJ-12",
@@ -3559,13 +3559,13 @@
       "main_description": "Our Butler range of Bakery Equipment includes Electric and Gas based Deck Ovens, Proofers, Planetary and Spiral Mixers, Dough Sheeters, Dough Dividers and Bread Slicers. Professional bakers can also express themselves with great consistently and convenience provided by Butler Combi Steamers. You can also choose from the Trufrost range of Blast Chillers & Freezers and Reach-In Refrigerators & Undercounters and Walk-In Coldrooms.",
       "sub_cat_one": [
         {
-          "name": "BAKERY_EQUIPMENT",
+          "name": "BAKERY EQUIPMENT",
           "sub_cat_two": [
             {
-              "name": "BAKERY_OVEN",
+              "name": "BAKERY OVEN",
               "sub_cat_three": [
                 {
-                  "name": "ROTARY_RACK_OVENS",
+                  "name": "ROTARY RACK OVENS",
                   "product_name": [
                     {
                       "name": "RO-32E",
@@ -3612,7 +3612,7 @@
                   ]
                 },
                 {
-                  "name": "ELECTRIC_DECK_OVENS",
+                  "name": "ELECTRIC DECK OVENS",
                   "product_name": [
                     {
                       "name": "EFO-2C",
@@ -3659,7 +3659,7 @@
                   ]
                 },
                 {
-                  "name": "GAS_BASED_DECK_OVENS",
+                  "name": "GAS BASED DECK OVENS",
                   "product_name": [
                     {
                       "name": "GFO-2C",
@@ -3708,7 +3708,7 @@
               ]
             },
             {
-              "name": "PROOFING_CABINETS",
+              "name": "PROOFING CABINETS",
               "product_name": [
                 {
                   "name": "OVP-1224",
@@ -3734,7 +3734,7 @@
               ]
             },
             {
-              "name": "BAKERY_MIXERS",
+              "name": "BAKERY MIXERS",
               "product_name": [
                 {
                   "name": "B5",
@@ -3816,7 +3816,7 @@
               ]
             },
             {
-              "name": "DOUGH_SHEETERS",
+              "name": "DOUGH SHEETERS",
               "product_name": [
                 {
                   "name": "DS-520FS",
@@ -3835,7 +3835,7 @@
               ]
             },
             {
-              "name": "PIZZA_DOUGH_ROLLER",
+              "name": "PIZZA DOUGH ROLLER",
               "product_name": [
                 {
                   "name": "PDR-40",
@@ -3847,7 +3847,7 @@
               ]
             },
             {
-              "name": "DOUGH_DIVIDERS",
+              "name": "DOUGH DIVIDERS",
               "product_name": [
                 {
                   "name": "DD-36",
@@ -3859,7 +3859,7 @@
               ]
             },
             {
-              "name": "BREAD_SLICERS",
+              "name": "BREAD SLICERS",
               "product_name": [
                 {
                   "name": "BS-370",
@@ -3873,10 +3873,10 @@
           ]
         },
         {
-          "name": "COMBI_STEAMERS",
+          "name": "COMBI STEAMERS",
           "sub_cat_two": [
             {
-              "name": "ELECTRIC_COMBI_STEAMERS",
+              "name": "ELECTRIC COMBI STEAMERS",
               "product_name": [
                 {
                   "name": "ECS-007TM",
@@ -3923,7 +3923,7 @@
               ]
             },
             {
-              "name": "GAS_COMBI_STEAMERS",
+              "name": "GAS COMBI STEAMERS",
               "product_name": [
                 {
                   "name": "GCS-007TM",
@@ -3951,10 +3951,10 @@
           ]
         },
         {
-          "name": "HIGH_SPEED_OVENS",
+          "name": "HIGH SPEED OVENS",
           "sub_cat_two": [
             {
-              "name": "VENTLESS_HIGH_SPEED_OVEN",
+              "name": "VENTLESS HIGH SPEED OVEN",
               "product_name": [
                 {
                   "name": "Concorde Plus",
@@ -3975,10 +3975,10 @@
           ]
         },
         {
-          "name": "PROFESSIONAL_REFRIGERATION",
+          "name": "PROFESSIONAL REFRIGERATION",
           "sub_cat_two": [
             {
-              "name": "REACH_IN_REFRIGERATION",
+              "name": "REACH IN REFRIGERATION",
               "product_name": [
                 {
                   "name": "GN 680 TNM",
@@ -4004,7 +4004,7 @@
               ]
             },
             {
-              "name": "REACH_IN_FREEZERS",
+              "name": "REACH IN FREEZERS",
               "product_name": [
                 {
                   "name": "GN 680 BTM",
@@ -5113,7 +5113,7 @@
               ]
             },
             {
-              "name": "JAI JEERA/BUTTERMILK DISPENSERS",
+              "name": "JAL JEERA/BUTTERMILK DISPENSERS",
               "product_name": [
                 {
                   "name": "JJ-12",
@@ -5163,13 +5163,13 @@
           ]
         },
         {
-          "name": "BAKERY_EQUIPMENT",
+          "name": "BAKERY EQUIPMENT",
           "sub_cat_two": [
             {
-              "name": "BAKERY_OVEN",
+              "name": "BAKERY OVEN",
               "sub_cat_three": [
                 {
-                  "name": "ROTARY_RACK_OVENS",
+                  "name": "ROTARY RACK OVENS",
                   "product_name": [
                     {
                       "name": "RO-32E",
@@ -5216,7 +5216,7 @@
                   ]
                 },
                 {
-                  "name": "ELECTRIC_DECK_OVENS",
+                  "name": "ELECTRIC DECK OVENS",
                   "product_name": [
                     {
                       "name": "EFO-2C",
@@ -5263,7 +5263,7 @@
                   ]
                 },
                 {
-                  "name": "GAS_BASED_DECK_OVENS",
+                  "name": "GAS BASED DECK OVENS",
                   "product_name": [
                     {
                       "name": "GFO-2C",
@@ -5312,7 +5312,7 @@
               ]
             },
             {
-              "name": "PROOFING_CABINETS",
+              "name": "PROOFING CABINETS",
               "product_name": [
                 {
                   "name": "OVP-1224",
@@ -5338,7 +5338,7 @@
               ]
             },
             {
-              "name": "BAKERY_MIXERS",
+              "name": "BAKERY MIXERS",
               "product_name": [
                 {
                   "name": "B5",
@@ -5420,7 +5420,7 @@
               ]
             },
             {
-              "name": "DOUGH_SHEETERS",
+              "name": "DOUGH SHEETERS",
               "product_name": [
                 {
                   "name": "DS-520FS",
@@ -5439,7 +5439,7 @@
               ]
             },
             {
-              "name": "PIZZA_DOUGH_ROLLER",
+              "name": "PIZZA DOUGH ROLLER",
               "product_name": [
                 {
                   "name": "PDR-40",
@@ -5451,7 +5451,7 @@
               ]
             },
             {
-              "name": "DOUGH_DIVIDERS",
+              "name": "DOUGH DIVIDERS",
               "product_name": [
                 {
                   "name": "DD-36",
@@ -5463,7 +5463,7 @@
               ]
             },
             {
-              "name": "BREAD_SLICERS",
+              "name": "BREAD SLICERS",
               "product_name": [
                 {
                   "name": "BS-370",
@@ -5477,10 +5477,10 @@
           ]
         },
         {
-          "name": "COMBI_STEAMERS",
+          "name": "COMBI STEAMERS",
           "sub_cat_two": [
             {
-              "name": "ELECTRIC_COMBI_STEAMERS",
+              "name": "ELECTRIC COMBI STEAMERS",
               "product_name": [
                 {
                   "name": "ECS-007TM",
@@ -5527,7 +5527,7 @@
               ]
             },
             {
-              "name": "GAS_COMBI_STEAMERS",
+              "name": "GAS COMBI STEAMERS",
               "product_name": [
                 {
                   "name": "GCS-007TM",
@@ -5555,10 +5555,10 @@
           ]
         },
         {
-          "name": "HIGH_SPEED_OVENS",
+          "name": "HIGH SPEED OVENS",
           "sub_cat_two": [
             {
-              "name": "VENTLESS_HIGH_SPEED_OVEN",
+              "name": "VENTLESS HIGH SPEED OVEN",
               "product_name": [
                 {
                   "name": "Concorde Plus",
@@ -6652,6 +6652,356 @@
                   "description": "Trufrost Blast Chillers / Freezers are ideal for bringing the temperature of cooked food from 90°C to +3°C or – 18°C rapidly thereby safe-guarding it from bacterial growth and rendering it fit for subsequent storage and consumption. Designed to accommodate 13 trays, this model is suitable for both GN 1/1 and EN 400x 600 mm tray sizes.",
                   "product_heading": "Model,Cooling System,Product Dimensions W*D*H (mm),No. of Shelves,Pan Support,Chilling Capacity,Freezing Capacity,Refrigerant,Input Power (Watts)",
                   "product_value": "BCF-13,Ventilated,800*800*1780,13,GN 1/1 & EN 400 x 600,+70°C to +3°C 60kgs in 90mins,+70°C to -18°C 38kgs in 240mins,R404a,1860",
+                  "image_path": "device_path"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_category": "BIOMEDICAL",
+      "main_description": "Trufrost presents a comprehensive range of reliable biomedical refrigeration products that are suitable for hospitals, blood banks, pharmacies, research institutes, laboratories in electronic & chemical plants, fisheries and more. These high precision products include Ultra Low Freezers, Pharmacy Freezers & Coolers, Blood Bank Refrigeration, Mobile Coolers, Blood Platelet Incubators, Flake Ice Machines and Coldrooms.",
+      "sub_cat_one": [
+        {
+          "name": "BIOMEDICAL REFRIGERATION",
+          "sub_cat_two": [
+            {
+              "name": "-86°C ULTRA LOW TEMP FREEZERS",
+              "product_name": [
+                {
+                  "name": "ULTF-340",
+                  "description": "Trufrost -86 ULT Freezers are specially designed for long term storage of various biological products, including viruses, germs, erythrocytes, leucocytes and cutis. They are ideal for blood banks, hospitals, epidemic prevention services, research institutes, laboratories in electronic & chemical plants, biological institutes and fisheries.          Key Features of Ultra Low Temp Freezers:    Optimized double cascade refrigeration technology for ultra-low temperature application.   Environment friendly CH refrigerant helps save up to 50% on energy costs.     Advanced Vacuum Insulation Panel (VIP) technology enhances sealing and minimizes heat conduction rate resulting in 30% more storage volume.   Rapid cooling even at 38°C ambient temperature.     LED display for easy viewing of cabinet temperature, set temperature, ambient temperature, input voltage and early warning for malfunctions.    Derived temperature and alarm record within a month through USB port.     Special noise reduction design with advanced shock absorbers in key component.     Easy to remove and clean dust filter.     White board for records in ULTF 588 & 838.     Double lock system to avoid abnormal door opening . Safety Control System:    Malfunction alarms for cabinet temperature, voltage or ambient temperature exceeding the range and also for power failure or sensor error.    Audio visual alarm with buzzer & flashing light.     Optional remote alarm through USB port or SMS alarm.     Password protected lockable keyboard",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": " 340L, 854*1072*1907, 488*607*1140, 190kg, 1350W, -60°C ~ -86°C,2, Temp Recorder, Racks",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "ULTF-588",
+                  "description": "Trufrost -86 ULT Freezers are specially designed for long term storage of various biological products, including viruses, germs, erythrocytes, leucocytes and cutis. They are ideal for blood banks, hospitals, epidemic prevention services, research institutes, laboratories in electronic & chemical plants, biological institutes and fisheries.          Key Features of Ultra Low Temp Freezers:    Optimized double cascade refrigeration technology for ultra-low temperature application.    Environment friendly CH refrigerant helps save up to 50% on energy costs.    Advanced Vacuum Insulation Panel (VIP) technology enhances sealing and minimizes heat conduction rate resulting in 30% more storage volume.    Rapid cooling even at 38°C ambient temperature.    LED display for easy viewing of cabinet temperature, set temperature, ambient temperature, input voltage and early warning for malfunctions.   Derived temperature and alarm record within a month through USB port.    Special noise reduction design with advanced shock absorbers in key component.    Easy to remove and clean dust filter.    White board for records in ULTF 588 & 838.    Double lock system to avoid abnormal door opening. Safety Control System:    Malfunction alarms for cabinet temperature, voltage or ambient temperature exceeding the range and also for power failure or sensor error.   Audio visual alarm with buzzer & flashing light.    Optional remote alarm through USB port or SMS alarm.    Password protected lockable keyboard",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": "588L, 872*1192*1995, 606*738*1310, 249kg, 815W, -60°C ~ -86°C,2, Chart Recorder, Temp Recorder, Racks",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "ULTF-838",
+                  "description": "Trufrost -86 ULT Freezers are specially designed for long term storage of various biological products, including viruses, germs, erythrocytes, leucocytes and cutis. They are ideal for blood banks, hospitals, epidemic prevention services, research institutes, laboratories in electronic & chemical plants, biological institutes and fisheries.          Key Features of Ultra Low Temp Freezers:    Optimized double cascade refrigeration technology for ultra-low temperature application.    Environment friendly CH refrigerant helps save up to 50% on energy costs.    Advanced Vacuum Insulation Panel (VIP) technology enhances sealing and minimizes heat conduction rate resulting in 30% more storage volume.    Rapid cooling even at 38°C ambient temperature.    LED display for easy viewing of cabinet temperature, set temperature, ambient temperature, input voltage and early warning for malfunctions.    Derived temperature and alarm record within a month through USB port.    Special noise reduction design with advanced shock absorbers in key component.    Easy to remove and clean dust filter.     White board for records in ULTF 588 & 838.     Double lock system to avoid abnormal door opening. Safety Control System:    Malfunction alarms for cabinet temperature, voltage or ambient temperature exceeding the range and also for power failure or sensor error.  Audio visual alarm with buzzer & flashing light.    Optional remote alarm through USB port or SMS alarm.Password protected lockable keyboard",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": " 838L, 1160*1172*1995,894*718*1310, 275kg, 890W, -60°C ~ -86°C,2, Chart Recorder, Temp Recorder, Racks",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "-40°C LOW TEMP FREEZERS",
+              "product_name": [
+                {
+                  "name": "LTF-270",
+                  "description": "Designed to store vaccines, blood plasma, biological materials and  ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes, these products are suitable for low temperature experiments of electronic components, storage of blood plasma, biological materials, vaccines etc.   Key Features of Low Temp Upright Freezers:    Unique refrigeration system for faster cooling.    Eco-friendly and energy saving CH refrigerant.    Independent inner door to prevent cooling loss.    Adjustable shelves with plastic coated steel.    Built in lock for safety. Safety Control System:    Multiple alarm for high/low temperature & sensor malfunction.    Password protected lockable keyboard.    Micro-computer based temperature control system.    ensures high precision and uniform cooling",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": " 268L, 673*676*1630, 508*455*1137, 98.5kg, 300W, -30°C ~ -40°C,1, Test Hole, Temp Recorder, Basket",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "LTF-250",
+                  "description": "Designed to store vaccines, blood plasma, biological materials and  ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes, these products are suitable for low temperature experiments of electronic components, storage of blood plasma, biological materials, vaccines etc.    Key Features of Low Temp Chest Freezers:    Unique refrigeration system ensures faster cooling and better stability.     Energy efficient and environment friendly R 290 refrigerant.    Lock for safety. Safety Control System:    Multiple alarm for high/low temperature & sensor malfunction.    Password protected lockable keyboard    Micro-computer based temperature control system.    ensures high precision and uniform cooling",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm)Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": " 276L, 1104*554*845, ≤-18°C,1, Temp Recorder, Basket, Wheels/Castor",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "LTF-400",
+                  "description": "Designed to store vaccines, blood plasma, biological materials and  ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes, these products are suitable for low temperature experiments of electronic components, storage of blood plasma, biological materials, vaccines etc.    Key Features of Low Temp Chest Freezers:    Unique refrigeration system ensures faster cooling and better stability.     Energy efficient and environment friendly R 290 refrigerant.     Lock for safety. Safety Control System:    Multiple alarm for high/low temperature & sensor malfunction.     Password protected lockable keyboard.     Micro-computer based temperature control system.     ensures high precision and uniform cooling",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Temp Range (°C),Compressor/s,Optional Accessories",
+                  "product_value": " 400L, 1304*670*830, ≤-18°C,1, Temp Recorder, Basket, Wheels/Castor",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "-25°C UPRIGHT FREEZERS",
+              "product_name":   [
+                {
+                  "name": "UF-110",
+                  "description": "This product is designed to store vaccines, biological materials etc., and are ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes. It also features precise temperature control and a digital temperature indicator.          Key Features:    Unique refrigeration system ensures faster cooling and better stability.    Environment friendly R 600a refrigerant.    Accurate microprocessor controller to ensure consistent cabinet temperature 10°C~-25°C and increment 0.1°C (MDF Models).    Adjustable height of plastic coated fabric grid, more uniform temperature (MDF Models)    Adjustable shelves.    Lock for safety.     Temperature Display",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Drawers / Shelves,Lock,Temp Display,Temp Range (°C),Power (w),Refrigerant",
+                  "product_value": " 110L, 526*571*831,3, Yes, No, ≤-18°C,73, R-600A",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "UF-220",
+                  "description": "This product is designed to store vaccines, biological materials etc., and are ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes. It also features precise temperature control and a digital temperature indicator.          Key Features:    Unique refrigeration system ensures faster cooling and better stability.    Environment friendly R 600a refrigerant.    Accurate microprocessor controller to ensure consistent cabinet temperature 10°C~-25°C and increment 0.1°C (MDF Models).    Adjustable height of plastic coated fabric grid, more uniform temperature (MDF Models).    Adjustable shelves.    Lock for safety.    Temperature Display",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Drawers / Shelves,Lock,Temp Display,Temp Range (°C),Refrigerant",
+                  "product_value": " 210L, 600*680*1328,7, Yes, Yes, ≤-18°C, R-600A",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "UF-330",
+                  "description": "This product is designed to store vaccines, biological materials etc., and are ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes. It also features precise temperature control and a digital temperature indicator.          Key Features:    Unique refrigeration system ensures faster cooling and better stability.    Environment friendly R 600a refrigerant.    Accurate microprocessor controller to ensure consistent cabinet temperature 10°C~-25°C and increment 0.1°C (MDF Models).    Adjustable height of plastic coated fabric grid, more uniform temperature (MDF Models).    Adjustable shelves.    Lock for safety.    Temperature Display",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Drawers / Shelves,Lock,Temp Display,Temp Range (°C),Refrigerant",
+                  "product_value": " 310L, 600*680*1778,10, Yes, Yes, ≤-18°C, R-600A",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "MDF-25V268E",
+                  "description": "This product is designed to store vaccines, biological materials etc., and are ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes. It also features precise temperature control and a digital temperature indicator.          Key Features:    Unique refrigeration system ensures faster cooling and better stability.    Environment friendly R 600a refrigerant.    Accurate microprocessor controller to ensure consistent cabinet temperature 10°C~-25°C and increment 0.1°C (MDF Models).    Adjustable height of plastic coated fabric grid, more uniform temperature (MDF Models).    Adjustable shelves.    Lock for safety.    Temperature Display",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Drawers / Shelves,Lock,Temp Display,Temp Range (°C),Power (w),Refrigerant",
+                  "product_value": " 268L, 673*676*1630,4, Yes, Yes, -10 ~ -25°C,280, R290",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "MDF-25V328E",
+                  "description": "This product is designed to store vaccines, biological materials etc., and are ideal for use in electronic and chemical laboratories, epidemic prevention centres, hospitals, animal husbandry, blood banks and research institutes. It also features precise temperature control and a digital temperature indicator.          Key Features:    Unique refrigeration system ensures faster cooling and better stability.    Environment friendly R 600a refrigerant.    Accurate microprocessor controller to ensure consistent cabinet temperature 10°C~-25°C and increment 0.1°C (MDF Models).    Adjustable height of plastic coated fabric grid, more uniform temperature (MDF Models).    Adjustable shelves.    Lock for safety.    Temperature Display",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Drawers / Shelves,Lock,Temp Display,Temp Range (°C),Power (w),Refrigerant",
+                  "product_value": " 328L, 673*676*1886,5, Yes, Yes, -10 ~ -25°C,280, R290",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "2~8°C PHARMACY REFRIGERATORS",
+              "product_name": [
+                {
+                  "name": "MVC-260",
+                  "description": "Trufrost Pharmacy Refrigerators are designed to store pharmaceuticals, medicines and other related products and are ideal for drug stores, pharmaceutical companies, hospitals, epidemic prevention centers and clinics.           Key Features:    Advanced forced-air cooling system, large airflow with optimized air channels to guarantee inner temperature consistency. The special finned evaporator ensures no-frost and effective temperature management within ±3°C, the adjustable temperature range: 2~8°C.    Microprocessor control with digital temperature display with an accuracy of 0.1°C    Multi-level and adjustable shelves for various dimensions of pharmaceutical products, making full use of the space.    Inner light for clear display. Safety Control System:    High/Low temperature alarm, thermostat malfunction alarm, door ajar alarm and power failure alarm. The start delay function provides protection of device.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protected lockable keyboard to prevent random parameter changes.     Optional remote control mode by Wi-Fi monitor",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),No. of Shelves,Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 260L, 575*612*1695, 485*480*1245,5, 63kg,165, 2°C ~ 8°C, Electronic Control (Touch), USB Port to Download data, RH Display, Temp Alarm",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "MVC-360",
+                  "description": "Trufrost Pharmacy Refrigerators are designed to store pharmaceuticals, medicines and other related products and are ideal for drug stores, pharmaceutical companies, hospitals, epidemic prevention centers and clinics.           Key Features:    Advanced forced-air cooling system, large airflow with optimized air channels to guarantee inner temperature consistency. The special finned evaporator ensures no-frost and effective temperature management within ±3°C, the adjustable temperature range: 2~8°C.    Microprocessor control with digital temperature display with an accuracy of 0.1°C.    Multi-level and adjustable shelves for various dimensions of pharmaceutical products, making full use of the space.    Inner light for clear display.  Safety Control System:    High/Low temperature alarm, thermostat malfunction alarm, door ajar alarm and power failure alarm. The start delay function provides protection of device.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protected lockable keyboard to prevent random parameter changes.    Optional remote control mode by Wi-Fi monitor",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),No. of Shelves,Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 360L, 615*612*1968, 525*480*1524,6, 75kg,175, 2°C ~ 8°C,Electronic Control (Touch), USB Port to Download data, RH Display, Temp Alarm",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "MVC-800",
+                  "description": "Trufrost Pharmacy Refrigerators are designed to store pharmaceuticals, medicines and other related products and are ideal for drug stores, pharmaceutical companies, hospitals, epidemic prevention centers and clinics.           Key Features:    Advanced forced-air cooling system, large airflow with optimized air channels to guarantee inner temperature consistency. The special finned evaporator ensures no-frost and effective temperature management within ±3°C, the adjustable temperature range: 2~8°C.    Microprocessor control with digital temperature display with an accuracy of 0.1°C.    Multi-level and adjustable shelves for various dimensions of pharmaceutical products, making full use of the space.    Inner light for clear display.  Safety Control System:    High/Low temperature alarm, thermostat malfunction alarm, door ajar alarm and power failure alarm. The start delay function provides protection of device.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protected lockable keyboard to prevent random parameter changes.    Optional remote control mode by Wi-Fi monitor",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),No. of Shelves,Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 835L, 1190*660*2030, 1100*530*1555,8,142kg, 460W, 2°C ~ 8°C, Test Hole, Thermal Printer, Temp Recorder, Waterproof Socket",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "4° ± 1°C BLOOD BANK REFRIGERATORS",
+              "product_name": [
+                {
+                  "name": "BBR-108",
+                  "description": "Blood storage requires specially designed equipment that must comply with international standards. Trufrost Bank Refrigerators are reliable for storing blood and are ideal for blood banks, hospitals and the medical industry. They can also be used to store pharmacy and biological products in hospitals and disease prevention centers.                                                  Key Features:  Advanced forced-air cooling system, large airflow with optimised air channels for inner temperature consistency and special finned evaporator.    Inner light and heated double pane glass doors ensure clear display without condensation.    Microprocessor control with digital temperature display.    Auto-defrost function ensures good performance in high temperature and high humidity areas.    Safety lock prevents unauthorized access.    Large digital display for easier observation.    SUS shelves for convenient storage of blood bags.    Self-closing doors. Safety Control System:    Alarm mode monitors ambient temperature and system state to ensure safety and reliability of storage conditions.    High/Low temperature alarm, thermostat malfunction alarm, power failure alarm in 72 hours, battery backup malfunction alarm, condenser abnormality alarm.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protection to prevent random parameter change",
+                  "product_heading": "Volume,450ml Blood Bags,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 108L,66, 522*600*1050, 432*462*478, 50kg, 160W, 4± 1°C, Chart Recorder, Temp Recorder, Remote Alarm Interface",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "BBR-208",
+                  "description": "Blood storage requires specially designed equipment that must comply with international standards. Trufrost Bank Refrigerators are reliable for storing blood and are ideal for blood banks, hospitals and the medical industry. They can also be used to store pharmacy and biological products in hospitals and disease prevention centers.                                                  Key Features:  Advanced forced-air cooling system, large airflow with optimised air channels for inner temperature consistency and special finned evaporator.    Inner light and heated double pane glass doors ensure clear display without condensation.    Microprocessor control with digital temperature display.    Auto-defrost function ensures good performance in high temperature and high humidity areas.    Safety lock prevents unauthorized access.    Large digital display for easier observation.    SUS shelves for convenient storage of blood bags.    Self-closing doors. Safety Control System:    Alarm mode monitors ambient temperature and system state to ensure safety and reliability of storage conditions.    High/Low temperature alarm, thermostat malfunction alarm, power failure alarm in 72 hours, battery backup malfunction alarm, condenser abnormality alarm.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protection to prevent random parameter change",
+                  "product_heading": "Volume,450ml Blood Bags,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 208L,132, 522*600*1550, 432*462*978, 67kg, 200W, 4± 1°C, Chart Recorder, Temp Recorder, Remote Alarm Interface",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "BBR-658",
+                  "description": "Blood storage requires specially designed equipment that must comply with international standards. Trufrost Bank Refrigerators are reliable for storing blood and are ideal for blood banks, hospitals and the medical industry. They can also be used to store pharmacy and biological products in hospitals and disease prevention centers.                                                  Key Features:  Advanced forced-air cooling system, large airflow with optimised air channels for inner temperature consistency and special finned evaporator.    Inner light and heated double pane glass doors ensure clear display without condensation.    Microprocessor control with digital temperature display.    Auto-defrost function ensures good performance in high temperature and high humidity areas.    Safety lock prevents unauthorized access.    Large digital display for easier observation.    SUS shelves for convenient storage of blood bags.    Self-closing doors. Safety Control System:    Alarm mode monitors ambient temperature and system state to ensure safety and reliability of storage conditions.    High/Low temperature alarm, thermostat malfunction alarm, power failure alarm in 72 hours, battery backup malfunction alarm, condenser abnormality alarm.    Audio and visual alarm.    USB port, optional temperature controller with thermal printer to track temperature curve.    Password protection to prevent random parameter change",
+                  "product_heading": "Volume,450ml Blood Bags,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": " 658L,360, 1220*648*1885, 1100*454*1325, 165kg, 364W, 4± 1°C, Chart Recorder, Temp Recorder, Remote Alarm Interface",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "-25°C ~ + 4°C MOBILE FREEZERS/COOLERS",
+              "product_name": [
+                {
+                  "name": "MMC-30",
+                  "description": "These are designed for storage and transportation of blood, serum, plasma, vaccines, reagents and special medicines and are ideal for immunization programs, epidemic prevention stations, blood banks, health centres, animal husbandry bureaus, logistics service companies, pharmaceutical  factories and for genetic engineering applications.                                                                                                                       Key Features:    Multi-function: Temperature can change from freezing to cooling.    Temperature fluctuation between ±2°C.    High efficiency compressor with integrated electronic control.    Protection device for low voltage.    Rapid cooling.    Constant alarm in case of power failure.    Audio and visual alarm.    Password protected lockable keyboard.    Suitable for AC 220 Volts or DC 12/24 Volts power supply of a cigarette lighter",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C)",
+                  "product_value": " 30L,615*370*472, 364*253*353, 22kg, 80W, -25± 1/4± 1°C",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "MMC-80",
+                  "description": "These are designed for storage and transportation of blood, serum, plasma, vaccines, reagents and special medicines and are ideal for immunization programs, epidemic prevention stations, blood banks, health centres, animal husbandry bureaus, logistics service companies, pharmaceutical  factories and for genetic engineering applications.                                                                                                                       Key Features:    Multi-function: Temperature can change from freezing to cooling.    Temperature fluctuation between ±2°C.    High efficiency compressor with integrated electronic control.    Protection device for low voltage.    Rapid cooling.    Constant alarm in case of power failure.    Audio and visual alarm.    Password protected lockable keyboard.    Suitable for AC 220 Volts or DC 12/24 Volts power supply of a cigarette lighter",
+                  "product_heading": "Volume,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C)",
+                  "product_value": " 80L, 937*565*581, 547*378*370, 47kg, 100W, -25± 1/4± 1°C",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "20~24°C BLOOD PLATELET INCUBATORS",
+              "product_name": [
+                {
+                  "name": "BPI-5",
+                  "description": "The blood platelet incubator is widely used to store blood platelets, biological reagents and chemical products. They are used by hospitals, blood banks, research institutes, laboratories and universities.                                                                        Key Features:    High accuracy sensor.    Microprocessor control with inner temperature controlled at 22°C ±2°C.    Efficient refrigeration system with controlled fan and forced cycle mechanism ensures temperature consistency inside the cabinet.    Large digital display for easier observation.    Disinfection by UV light that shuts off automatically when door is opened to prevent harm to human body.    Double insulated glass door makes observation easy.    High quality oscillation slide rail for longevity as well as low noise. Safety Control System:    Alarm mode monitors ambient temperature and system state to ensure safety and reliability of storage conditions.    High/Low temperature alarm, thermostat malfunction alarm, power failure alarm in 72 hours, battery back-up malfunction alarm and door ajar alarm.    Audio and visual alarm",
+                  "product_heading": "Shelves,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": "5, 522*600*1050, 427*360*467, 60kg, 197W, 20 ~ 24°C, Test Hole, Temp Recorder, Remote Alarm Monitoring System",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "BPI-10",
+                  "description": "The blood platelet incubator is widely used to store blood platelets, biological reagents and chemical products. They are used by hospitals, blood banks, research institutes, laboratories and universities.                                                                        Key Features:    High accuracy sensor.    Microprocessor control with inner temperature controlled at 22°C ±2°C.    Efficient refrigeration system with controlled fan and forced cycle mechanism ensures temperature consistency inside the cabinet.    Large digital display for easier observation.    Disinfection by UV light that shuts off automatically when door is opened to prevent harm to human body.    Double insulated glass door makes observation easy.    High quality oscillation slide rail for longevity as well as low noise. Safety Control System:    Alarm mode monitors ambient temperature and system state to ensure safety and reliability of storage conditions.    High/Low temperature alarm, thermostat malfunction alarm, power failure alarm in 72 hours, battery back-up malfunction alarm and door ajar alarm.    Audio and visual alarm",
+                  "product_heading": "Shelves,Exterior Dimensions (W*D*H/mm),Interior Dimensions (W*D*H/mm),Net Weight,Power (W),Temp Range (°C),Optional Accessories",
+                  "product_value": "10, 522*600*1300, 432*462*728, 80kg, 280W, 20 ~ 24°C, Test Hole, Temp Recorder, Remote Alarm Monitoring System",
+                  "image_path": "device_path"
+                }
+              ]
+            }
+
+          ]
+        },
+        {
+          "name": "ICE MACHINES",
+          "sub_cat_two": [
+            {
+              "name": "ICE MAKERS WITH BUILT-IN STORAGE",
+              "product_name": [
+                {
+                  "name": "IC-18BW",
+                  "description": "This compact countertop ice machine produces bullet shaped ice cubes and is ideal for small bars, coffee shops, juice bars, restaurants or homes. Just insert a bottled water jar on top of the ice maker, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency. Insulated ice storage bin and door minimize air condensation and water formation.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "18 kgs,2.2 kgs.,Bullet / Ø 35*39 mm,R134a,357*423*452",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC 25 B",
+                  "description": "Highly relevant for commercial outlets where space is at a premium, this self contained Trufrost Ice Machine produces bullet shaped ice cubes and presents a good option for bars, coffee shops and restaurants and can also be used for undercounter applications. Just connect your ice-maker to a purified water inlet, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency. Insulated ice storage bin and door minimize air condensation and water formation.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "25 kgs.,15 kgs.,Bullet / Ø 28*39 mm,R404a,375*575*762",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-30",
+                  "description": "Highly relevant for commercial outlets where space is at a premium, this self contained Trufrost Ice Machine produces Dice shaped ice cubes and presents a good option for bars, coffee shops and restaurants and can also be used for undercounter applications. Just connect your ice-maker to a purified water inlet, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency. Insulated ice storage bin and door minimize air condensation and water formation.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "30 kgs.,10 kgs.,Dice / 22*22*22 mm,R404a,460*430*800",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-35BW",
+                  "description": "Highly relevant for commercial outlets where space is at a premium, this self contained Trufrost Ice Machine produces Dice shaped ice cubes and presents a good option for bars, coffee shops and restaurants and can also be used for undercounter applications. Just connect your ice-maker to a purified water inlet or insert a bottled water jar, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency.                                                                                                           Insulated ice storage bin and door minimize air condensation and water formation.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "36 kgs.,15 kgs.,Dice / 28*28*22 mm,R404a,500*450*840",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-50BW",
+                  "description": "Highly relevant for commercial outlets where space is at a premium, this self contained Trufrost Ice Machine produces Dice shaped ice cubes and presents a good option for bars, coffee shops and restaurants and can also be used for undercounter applications. Just connect your ice-maker to a purified water inlet or insert a bottled water jar, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency.                                                                                                                                           Insulated ice storage bin and door minimize air condensation and water formation. ",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "50 kgs,18 kgs.,Dice / 28*28*22 mm,R404a,500*590*850",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-100",
+                  "description": "Highly relevant for commercial outlets where space is at a premium, this self contained Trufrost Ice Machine produces Dice shaped ice cubes and presents a good option for bars, coffee shops and restaurants and can also be used for undercounter applications. Just connect your ice-maker to a purified water inlet, turn the machine on, and you can begin to enjoy perfect ice within minutes. Designed to automatically turn off when the storage bin is full, it ensures a high level of energy efficiency.                                                                 Insulated ice storage bin and door minimize air condensation and water formation.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "98 kgs.,36 kgs.,Dice / 28*28*22 mm,R404a,660*685*920",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "MODULAR ICE MACHINES WITH SEPARATE STORAGE BINS",
+              "product_name": [
+                {
+                  "name": "IC-200",
+                  "description": "This Modular ice machine produces high quality Diced shaped ice cubes with a rated capacity of 192 kgs per day and comes with a separate storage bin. Trufrost modular ice machines come with a with vertical evaporator and are specially designed for large scale usage such as fast foods, discos, hotels and bars. They have a surprisingly low water consumption per kg of ice produced and combine maximum energy yield whilst ensuring low investments and operating costs. Compatible Ice Storage Bin ISB 105 is available separately at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "192 kgs,105 kg,Dice / 28*28*22 mm,R404a,560*830*1718,ISB-105",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-300",
+                  "description": "This Modular ice machine produces high quality Diced shaped ice cubes with a rated capacity of 318 kgs per day and comes with a separate storage bin. Trufrost modular ice machines come with a with vertical evaporator and are specially designed for large scale usage such as fast foods, discos, hotels and bars. They have a surprisingly low water consumption per kg of ice produced and combine maximum energy yield whilst ensuring low investments and operating costs. Compatible Ice Storage Bin ISB 125 is available separately at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "318 kgs.,125 kg,Dice / 28*28*22 mm,R404a,760*830*1718,ISB-125",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-455",
+                  "description": "This Modular ice machine produces high quality Diced shaped ice cubes with a rated capacity of 455 kgs per day and comes with a separate storage bin. Trufrost modular ice machines come with a with vertical evaporator and are specially designed for large scale usage such as fast foods, discos, hotels and bars. They have a surprisingly low water consumption per kg of ice produced and combine maximum energy yield whilst ensuring low investments and operating costs. Compatible Ice Storage Bin ISB 125 is available separately at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "455 kgs.,125 kg,Dice / 28*28*22 mm,R404a,760*830*1893,ISB-125",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IC-900",
+                  "description": "This 3 phase, modular ice machine produces high quality Diced shaped ice cubes with a rated capacity of 910 kgs per day and comes with a separate storage bin. Trufrost modular ice machines come with a with vertical evaporator and are specially designed for large scale usage such as fast foods, discos, hotels and bars. They have a surprisingly low water consumption per kg of ice produced and combine maximum energy yield whilst ensuring low investments and operating costs. Compatible Ice Storage Bin ISB 315 is available separately at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "910 kgs.,315 kg,Dice / 28*28*22 mm,R404a,1227*973*2048,ISB-315",
+                  "image_path": "device_path"
+                }
+              ]
+            },
+            {
+              "name": "FLAKE ICE MACHINES",
+              "product_name": [
+                {
+                  "name": "IF-20",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-20 has a rated production capacity of 20 kgs per day and comes with a self contained storage bin.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "20 kgs.,10 kgs.,Granular Flakes,R 134a,330*470*610",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IF-50",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-50 has a rated production capacity of 50 kgs per day and comes with a self contained storage bin.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "50 kgs.,15 kgs.,Granular Flakes,R 134a,400*540*700",
+                  "image_path" : "device_path"
+                },
+                {
+                  "name": "IF-70",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-70 has a rated production capacity of 70 kgs per day and comes with a self contained storage bin.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "70 kgs.,20 kgs.,Granular Flakes,R 134a,520*550*960",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IF-130",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-130 has a rated production capacity of 130 kgs per day and comes with a self contained storage bin.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm)",
+                  "product_value": "130 kgs.,50 kgs.,Granular Flakes,R404a,650*640*1050",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IF-200",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-200 has a rated production capacity of 200 kgs per day and comes with a separate modular ice storage bin ISB 125 that is available at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "200 kgs.,125 kg,Granular Flakes,R404a,560*830*1780,ISB 105",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IF-500",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-500 has a rated production capacity of 500 kgs per day and comes with a separate modular ice storage bin ISB 125 that is available at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "500 kgs.,125 kg,Granular Flakes,R404a,760*830*1950,ISB 125",
+                  "image_path": "device_path"
+                },
+                {
+                  "name": "IF-1000",
+                  "description": "Flake ice is granular type of ice, perfect for display of fresh fish or for use by hotels for buffets for moisturizing and cooling foodstuff to perfection. Flake ice is also perfect for use in research labs and bio-medical, life sciences and healthcare applications. The Trufrost IF-1000 has a rated production capacity of 1000 kgs per day and comes with a separate modular ice storage bin ISB 315 that is available at an extra cost.",
+                  "product_heading": "Rated Capacity / 24 hrs.*,Ice Storage Capacity,Cube Shape / Size,Refrigerant,Dimensions wxdxh (in mm),Compatible Storage Bin",
+                  "product_value": "1000 kgs.,315 kg,Granular Flakes,R404a,1225*973*2195,ISB 315",
+                  "image_path": "device_path"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "COLD ROOMS",
+          "sub_cat_two": [
+            {
+              "name": "WALK-IN COLDROOMS",
+              "product_name":  [
+                {
+                  "name": "Coldrooms",
+                  "description": "We specialize in preservation & storage of products ranging from hospitality, frozen foods, fresh produce, dairy products, beverages, to medicines & vaccinations and more. Be it small walk-in coolers & freezers, or large refrigerated warehouses, our Coldrooms are easy to install, use, and maintain, keeping you up and running from the very start. We’ve devoted ourselves to creating products and solutions that are extremely dependable. No matter where you’re headed, you can count on Truas a genuine partner to help you get there.  Trufrost offers a variety of the most energy efficient hardware and accessories to fit your walk-in cooler or freezer needs  Cam Locking with Gaskets. Our camlocks ensure strong, perfect alignment of all joints. Food-grade PVC gaskets make them neat & leak-proof and are a superior replacement of silicon sealants. Custom Built Panels. Trufrost PUF Panels can be made to suit your layout design and site conditions. Our sizes are flexible and use L, T and + shape panels to ensure the cold rooms are structurally strong, rivet-free and hygienic. Inside and Outside Ramp. Site conditions are often not perfect but you may still need to move in and out of cold rooms frequently. Trufrost custom designed ramps ensure that you cart out your foodstuff on trolleys, unhindered. Rounded Corners. Trufrost gives you the option of rounded corners on wall to wall, wall to ceiling and wall to floor sections that enables easy cleaning of corners and utmost hygiene in your cold room. Sliding Doors.  Perfect solution for tight alleys but a wider opening requirement. Trufrost offers heavy duty sliding doors with highly durable, European accessories. Control Panel. Our control panels are designed to maximise the performance of all types of refrigeration systems. Optional features of remote monitoring and BMS compatibility are available. Shelving System product_value. Trufrost offers shelving for cold rooms with option of SS 304 or special aluminium. We offer you optimal storage system to maximise space utilisation in a coldroom to suit different budgets. LED lighting. Energy saving LED lighting options designed for damp, wet, walkin coolers or freezers applications are available from Trufrost. Energy-efficient Refrigeration Units. Presenting Trufrost Refrigeration Systems with temperatures ranging from -86°C to +22°C. These world-class Condensing units and Evaporator units are the perfect complement to your Coldroom Panels. Salient Features : Rack systems with option of inverter compressor. Imported & locally manufactured energy-efficient compressors . Designed for tropiclised conditions (Class T). Stainless steel or pre-painted aluminium evaporators. Option of hermetic scroll & semi-hermetic compressors. Option of remote monitoring for BMS compatible HACCP controller. ",
+                  "product_heading": "Refrigeration Capacity BTU/Hr.,Temp. Range (°C),Loading Temp. (°C),Max. Loading (Kgs./Day),Max. Room Volume (CFT),Max.Room Area with 8’Ht. (SQ.FT.),Ambient (°C),Power* Consumption (kw),Power Supply (V/Ph/Hz),Defrosting (Type),Approx. weight (Kgs)",
+                  "product_value": "8000,2 to 6,30,300,525,65,38 to 43,1.6,230/1/50,Off-cycle,70",
                   "image_path": "device_path"
                 }
               ]
