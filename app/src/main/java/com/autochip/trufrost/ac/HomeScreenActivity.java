@@ -539,6 +539,12 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            ArrayList<String> alImagesPath = new ArrayList<>();
+            alImagesPath.add(sStorageLocation + File.separator + "G 2100 TNG" + ".jpg");
+            alImagesPath.add(sStorageLocation + File.separator + "GDO-6T Premia" + ".jpg");
+            alImagesPath.add(sStorageLocation + File.separator + "MDF-25V328E" + ".jpg");
+            alImagesPath.add(sStorageLocation + File.separator + "IC-300" + ".jpg");
+            sharedPreferencesClass.setImagesPath(TextUtils.join(",", alImagesPath));
         }
 
         /**

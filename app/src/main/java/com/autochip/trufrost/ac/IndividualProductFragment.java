@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -27,10 +28,13 @@ import androidx.viewpager.widget.ViewPager;
 import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler;
 
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import app_utility.Constants;
 import app_utility.OnFragmentInteractionListener;
+import app_utility.SharedPreferencesClass;
 
 
 /**
@@ -41,7 +45,7 @@ import app_utility.OnFragmentInteractionListener;
  * Use the {@link IndividualProductFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IndividualProductFragment extends Fragment {
+public class IndividualProductFragment extends Fragment implements OnFragmentInteractionListener{
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -77,6 +81,9 @@ public class IndividualProductFragment extends Fragment {
     ArrayList<String> alImagesPath = new ArrayList<>();
 
     int imagePathPosition = 0;
+    FrameLayout flParentViewPager;
+    private int padding = 20;
+    SharedPreferencesClass sharedPreferencesClass;
 
 
     public IndividualProductFragment() {
@@ -116,14 +123,23 @@ public class IndividualProductFragment extends Fragment {
             sTechSpecValue = bundle.getString("tech_spec_value");
             sDescription = bundle.getString("description");
         }
+        mListener = this;
+        if(sProductName.equals("GN 680 TNM")) {
+            sharedPreferencesClass = new SharedPreferencesClass(getActivity());
+            alImagesPath = new ArrayList<>(Arrays.asList(sharedPreferencesClass.getImagesPath().split(",")));
+            alImagesPath.add(0, sImagePath);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_individual_product, container, false);
-
+        View view;
+        if (sProductName.equals("GN 680 TNM"))
+            view = inflater.inflate(R.layout.layout_multiple_images, container, false);
+        else
+            view = inflater.inflate(R.layout.fragment_individual_product, container, false);
         initViews(view);
         getData(inflater);
         return view;
@@ -156,11 +172,11 @@ public class IndividualProductFragment extends Fragment {
 
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mLinearLayoutManager = new GridLayoutManager(getActivity(), 5);
+            mLinearLayoutManager = new GridLayoutManager(getActivity(), 6);
             mLinearLayoutManager.setOrientation(RecyclerView.VERTICAL);
             // In landscape
         } else {
-            mLinearLayoutManager = new GridLayoutManager(getActivity(), 3);
+            mLinearLayoutManager = new GridLayoutManager(getActivity(), 4);
             mLinearLayoutManager.setOrientation(RecyclerView.VERTICAL);
             // In portrait
         }
@@ -170,6 +186,9 @@ public class IndividualProductFragment extends Fragment {
         recyclerViewImages.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         recyclerViewImages.setHasFixedSize(true);
         recyclerViewImages.setLayoutManager(mLinearLayoutManager);
+
+        IndividualProductRVAdapter individualProductRVAdapter = new IndividualProductRVAdapter(getActivity(), recyclerViewImages, alImagesPath, mListener);
+        recyclerViewImages.setAdapter(individualProductRVAdapter);
         //recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
         //
         // saImagePath = dbh.getImagePathFromProducts(mParam3).split(",");
@@ -259,6 +278,7 @@ public class IndividualProductFragment extends Fragment {
         ivBlurImage = dialogViewPager.findViewById(R.id.iv_blur_bg);
         ivBlurImage.setOnTouchListener(new ImageMatrixTouchHandler(getContext()));
 
+        flParentViewPager = dialogViewPager.findViewById(R.id.fl_parent_viewpager);
 
         tvClosePreview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -313,18 +333,39 @@ public class IndividualProductFragment extends Fragment {
                 zoomOutPageTransformer.transformPage(page, position);
             }
         });*/
-        alImagesPath = new ArrayList<>();
-        alImagesPath.add(sImagePath);
+        if(!sProductName.equals("GN 680 TNM")) {
+            alImagesPath = new ArrayList<>();
+            alImagesPath.add(sImagePath);
+        }
         final DialogImagePagerAdapter dialogImagePagerAdapter = new DialogImagePagerAdapter(getActivity(), alImagesPath);
         mViewPagerSlideShow.setAdapter(dialogImagePagerAdapter);
         mViewPagerSlideShow.setCurrentItem(imagePathPosition);
         handleArrow(imagePathPosition);
+
+        DialogImagePagerAdapter.OnTouchListener onTouchListener = new DialogImagePagerAdapter.OnTouchListener() {
+            @Override
+            public void onTouch(boolean isZoom) {
+                if (isZoom) {
+                    setViewpagerSetting(true);
+                } else {
+                    setViewpagerSetting(false);
+                }
+            }
+        };
         //takeScreenshot();
         /*Typeface lightFace = Typeface.createFromAsset(getResources().getAssets(), "fonts/myriad_pro_light.ttf");
         Typeface regularFace = Typeface.createFromAsset(getResources().getAssets(), "fonts/myriad_pro_regular.ttf");
         tvHeading.setTypeface(regularFace);*/
         //tvSubHeading.setTypeface(lightFace);
         //tvDescription.setTypeface(lightFace);
+    }
+
+    private void setViewpagerSetting(boolean isZoomed) {
+        if (isZoomed) {
+            flParentViewPager.setPadding(0, 0, 0, 0);
+        } else {
+            flParentViewPager.setPadding(padding, 0, padding, 0);
+        }
     }
 
     private void handleArrow(int position) {
@@ -360,4 +401,20 @@ public class IndividualProductFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onFragmentCalled(int nCase, String sResult) {
+        Constants constants = Constants.values()[nCase];
+        switch (constants) {
+            case IMAGE_CLICKED:
+                //int pos = alImagesPath.indexOf(sResult);
+                Uri uri = Uri.fromFile(new File(sResult));
+                ivMainImage.setImageURI(uri);
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityCalled(int nCase, String sResult) {
+
+    }
 }

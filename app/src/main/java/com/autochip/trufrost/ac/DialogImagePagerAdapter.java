@@ -4,32 +4,35 @@ package com.autochip.trufrost.ac;
  * Created by Vj on 30-Mar-17.
  */
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
 
+import library.TouchImageView;
+
 class DialogImagePagerAdapter extends PagerAdapter {
 
     private Activity aActivity;
     private LayoutInflater mLayoutInflater;
-    //private int[] mResources;
+    private boolean isEnabledPagePadding;
     //private OnFragmentInteractionListener mListener;
     //private String[] saImagePath;
     ArrayList<String> alImagesPath = new ArrayList<>();
+    private OnTouchListener onTouchListener;
     //private CircularProgressBar circularProgressBar;
-
-    /*private String[] sImageURL = {"https://s3.amazonaws.com/sohamsaabucket/01-min.jpg", "https://s3.amazonaws.com/sohamsaabucket/02-min.jpg",
-            "https://s3.amazonaws.com/sohamsaabucket/03-min.jpg"};*/
 
     DialogImagePagerAdapter(Activity aActivity, ArrayList<String> alImagesPath) {
         this.aActivity = aActivity;
@@ -49,17 +52,36 @@ class DialogImagePagerAdapter extends PagerAdapter {
         return view == object;
     }
 
+    @NonNull
+    @SuppressLint("ClickableViewAccessibility")
     @Override
-    public Object instantiateItem(final ViewGroup container, final int position) {
+    public Object instantiateItem(@NonNull final ViewGroup container, final int position) {
         View itemView = mLayoutInflater.inflate(R.layout.dialog_image_pager_item, container, false);
 
-        ImageView imageView = itemView.findViewById(R.id.imageView);
+        /*ImageView imageView = itemView.findViewById(R.id.imageView);
         Uri uri = Uri.fromFile(new File(alImagesPath.get(position)));
-        imageView.setImageURI(uri);
+        imageView.setImageURI(uri);*/
 
 
-
+        final TouchImageView touchImageView = itemView.findViewById(R.id.iv_event_pager);
+        Uri uri = Uri.fromFile(new File(alImagesPath.get(position)));
+        touchImageView.setImageURI(uri);
         container.addView(itemView);
+        if (isEnabledPagePadding){
+            touchImageView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+
+                    if (touchImageView.getCurrentZoom() > 1.0) {
+                        onTouchListener.onTouch(true);
+                    } else {
+
+                        onTouchListener.onTouch(false);
+                    }
+                    return false;
+                }
+            });
+        }
         return itemView;
     }
 
@@ -68,4 +90,7 @@ class DialogImagePagerAdapter extends PagerAdapter {
         container.removeView((LinearLayout) object);
     }
 
+    interface  OnTouchListener{
+        void onTouch(boolean isZoom);
+    }
 }

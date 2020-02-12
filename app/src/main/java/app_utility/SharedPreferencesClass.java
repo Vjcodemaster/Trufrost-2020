@@ -13,6 +13,7 @@ public class SharedPreferencesClass {
     private static final int PRIVATE_MODE = 0;
 
     private static final String IS_DATA_DOWNLOADED = "IS_DATA_DOWNLOADED";
+    private static final String IMAGES_PATH = "IMAGES_PATH";
 
     //private static final String KEY_TAG_ID = "tagID";
     SharedPreferences.Editor editor;
@@ -35,4 +36,12 @@ public class SharedPreferencesClass {
         return sharedPreferences.getBoolean(IS_DATA_DOWNLOADED, false);
     }
 
+    public void setImagesPath(String sImagesPath){
+        editor.putString(IMAGES_PATH, sImagesPath);
+        editor.apply();
+    }
+
+    public String getImagesPath(){
+        return sharedPreferences.getString(IMAGES_PATH, null);
+    }
 }

@@ -7,11 +7,18 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"/>-->
 
+    <library.TouchImageView
+        android:id="@+id/iv_event_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"/>
 </LinearLayout>

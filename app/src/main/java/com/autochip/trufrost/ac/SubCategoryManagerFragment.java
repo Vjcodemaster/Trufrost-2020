@@ -1,9 +1,12 @@
 package com.autochip.trufrost.ac;
 
-import android.animation.Animator;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -11,14 +14,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,9 +49,9 @@ public class SubCategoryManagerFragment extends Fragment implements OnFragmentIn
 
     RecyclerView rvFirstCategory;
     RecyclerView rvSecondCategory;
-    RecyclerView rvProducts;
+    //RecyclerView rvProducts;
     TextView tvHeading, tvDescription;
-    String sSubHeading;
+    //String sSubHeading;
     DatabaseHandler dbHandler;
     ImageView ivMainImage;
     //LinearLayout llIntro;

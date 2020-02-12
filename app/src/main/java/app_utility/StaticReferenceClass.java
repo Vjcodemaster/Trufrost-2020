@@ -12,6 +12,7 @@ public class StaticReferenceClass {
     public static int UPDATE_SECOND_SC_TO_ACTIVITY = 6;
     public static int SEND_SECOND_SC_TO_ALL_FRAGMENT = 7;
     public static int UPDATE_SUB_HEADING = 8;
+    public static int IMAGE_CLICKED = 9;
 
     public static final int WRITE_PERMISSION_CODE = 9001;
 }

@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import app_utility.OnFragmentInteractionListener;
 
+import static app_utility.StaticReferenceClass.IMAGE_CLICKED;
+
 public class IndividualProductRVAdapter extends RecyclerView.Adapter<IndividualProductRVAdapter.ProductItemTabHolder> {
 
     private Context context;
@@ -55,7 +57,7 @@ public class IndividualProductRVAdapter extends RecyclerView.Adapter<IndividualP
         holder.ivProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mListener.onFragmentCalled("IMAGE_CLICKED", position, "",alImagesPath.get(position));
+                mListener.onFragmentCalled(IMAGE_CLICKED ,alImagesPath.get(position));
             }
         });
     }

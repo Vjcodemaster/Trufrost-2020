@@ -8,4 +8,6 @@
 
     <color name="almostBlack">#80000000</color>
     <color name="darkBlue">#1D2733</color>
+    <color name="darkBlueTransparent">#E61D2733</color>
+    <color name="colorLightGrey">#E6434349</color>
 </resources>
