@@ -85,7 +85,7 @@ public class SecondSCPopupWindow {
         tvSecondSCNames[i] = new TextView(context);
         tvSecondSCNames[i].setTextAppearance(context, R.style.DialogText);
         tvSecondSCNames[i].setText(alSecondSC.get(i));
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(0,7,0,0);
         tvSecondSCNames[i].setLayoutParams(params);
         tvSecondSCNames[i].setTextColor(ResourcesCompat.getColor(context.getResources(), android.R.color.white, null));

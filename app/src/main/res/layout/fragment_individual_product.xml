@@ -136,7 +136,7 @@
                 </TableLayout>
             </LinearLayout>
         </HorizontalScrollView>
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -172,6 +172,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical" />
-        </LinearLayout>
+        </LinearLayout>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/rv_individual_product_images"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
     </LinearLayout>
 </ScrollView>

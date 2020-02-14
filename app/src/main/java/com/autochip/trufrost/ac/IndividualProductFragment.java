@@ -28,7 +28,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler;
 
 import java.io.File;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -159,6 +158,12 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
             public void onClick(View v) {
                 initImagePreviewDialog();
                 dialogViewPager.show();
+
+                String path = ivMainImage.getTag().toString();
+
+                int imagePathPosition = alImagesPath.indexOf(path);
+                mViewPagerSlideShow.setCurrentItem(imagePathPosition);
+                handleArrow(imagePathPosition);
             }
         });
 
@@ -203,11 +208,11 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
         int height;
         int width;
         if (imageHeight > imageWidth) {
-            height = (int) (250f);
-            width = (int) (210f);
+            height = (int) (340f);
+            width = (int) (280f);
         } else {
-            height = (int) (150f);
-            width = (int) (250f);
+            height = (int) (200f);
+            width = (int) (340f);
         }
         ViewGroup.LayoutParams params = ivMainImage.getLayoutParams();
         params.height = height;
@@ -215,6 +220,7 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
 
         ivMainImage.setLayoutParams(params);
 
+        ivMainImage.setTag(sImagePath);
         ivMainImage.setImageURI(uri);
         /*ArrayList<String> alImagesPath = new ArrayList<>();
         IndividualProductRVAdapter individualProductRVAdapter = new IndividualProductRVAdapter(getActivity(), recyclerViewImages,
@@ -283,6 +289,10 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
         tvClosePreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imagePathPosition = mViewPagerSlideShow.getCurrentItem();
+                Uri uri = Uri.fromFile(new File(alImagesPath.get(imagePathPosition)));
+                ivMainImage.setTag(alImagesPath.get(imagePathPosition));
+                ivMainImage.setImageURI(uri);
                 dialogViewPager.dismiss();
             }
         });
@@ -339,8 +349,11 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
         }
         final DialogImagePagerAdapter dialogImagePagerAdapter = new DialogImagePagerAdapter(getActivity(), alImagesPath);
         mViewPagerSlideShow.setAdapter(dialogImagePagerAdapter);
+        /*String path = ivMainImage.getTag().toString();
+
+        int imagePathPosition = alImagesPath.indexOf(path);
         mViewPagerSlideShow.setCurrentItem(imagePathPosition);
-        handleArrow(imagePathPosition);
+        handleArrow(imagePathPosition);*/
 
         DialogImagePagerAdapter.OnTouchListener onTouchListener = new DialogImagePagerAdapter.OnTouchListener() {
             @Override
@@ -409,6 +422,8 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
                 //int pos = alImagesPath.indexOf(sResult);
                 Uri uri = Uri.fromFile(new File(sResult));
                 ivMainImage.setImageURI(uri);
+                ivMainImage.setTag(sResult);
+                imagePathPosition = alImagesPath.indexOf(sResult);
                 break;
         }
     }

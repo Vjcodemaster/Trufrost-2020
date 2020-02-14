@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -85,6 +86,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
     SharedPreferencesClass sharedPreferencesClass;
 
     Toolbar toolbar;
+    ImageView ivCoverImage;
 
     private int nPermissionFlag = 0;
     ArrayList<String> alSecondSCNames;
@@ -115,6 +117,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
     }
 
     public void initViews() {
+        ivCoverImage = findViewById(R.id.iv_cover_photo);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -130,6 +133,13 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
         rvMainCategory.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         rvMainCategory.setHasFixedSize(true);
         rvMainCategory.setLayoutManager(mLinearLayoutManager);
+
+        ivCoverImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ivCoverImage.setVisibility(View.GONE);
+            }
+        });
 
         mViewPagerSlideShow = findViewById(R.id.viewpager_slideshow);
 
@@ -172,7 +182,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             }
         }, delay);
 
-        tvSubHeading.setOnClickListener(new View.OnClickListener() {
+        mcvSubHeading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fl_container);
@@ -313,7 +323,8 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+        int size = getSupportFragmentManager().getBackStackEntryCount();
+        if (size > 1) {
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fl_container);
             //currentFragment.getClass().getName();
             //String fragmentTag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
@@ -325,7 +336,10 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        super.onBackPressed();
+        if (size == 0 && ivCoverImage.getVisibility() == View.GONE)
+            ivCoverImage.setVisibility(View.VISIBLE);
+        else
+            super.onBackPressed();
     }
 
     @Override
@@ -485,7 +499,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                         databaseHelper.set_product_name(sProductName);
 
                                         String sFinalProductName = sProductName;
-                                        if(sProductName.contains("/")){
+                                        if (sProductName.contains("/")) {
                                             sFinalProductName = sProductName.replace("/", "#");
                                         }
                                         databaseHelper.set_product_image_path(sStorageLocation + File.separator + sFinalProductName + ".jpg");
@@ -514,7 +528,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnFragmentI
                                     databaseHelper.set_product_name(sProductName);
 
                                     String sFinalProductName = sProductName;
-                                    if(sProductName.contains("/")){
+                                    if (sProductName.contains("/")) {
                                         sFinalProductName = sProductName.replace("/", " ");
                                     }
 
