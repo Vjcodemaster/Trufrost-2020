@@ -135,10 +135,10 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view;
-        if (sProductName.equals("GN 680 TNM"))
+        //if (sProductName.equals("GN 680 TNM"))
             view = inflater.inflate(R.layout.layout_multiple_images, container, false);
-        else
-            view = inflater.inflate(R.layout.fragment_individual_product, container, false);
+        //else
+            //view = inflater.inflate(R.layout.fragment_individual_product, container, false);
         initViews(view);
         getData(inflater);
         return view;
@@ -200,7 +200,7 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
         //alImagesPath = new ArrayList<>(Arrays.asList(dbh.getImagePathFromProducts(mParam3).split(",")));
         Uri uri = Uri.fromFile(new File(sImagePath));
 
-        BitmapFactory.Options options = new BitmapFactory.Options();
+        /*BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(new File(uri.getPath()).getAbsolutePath(), options);
         int imageHeight = options.outHeight;
@@ -218,7 +218,7 @@ public class IndividualProductFragment extends Fragment implements OnFragmentInt
         params.height = height;
         params.width = width;
 
-        ivMainImage.setLayoutParams(params);
+        ivMainImage.setLayoutParams(params);*/
 
         ivMainImage.setTag(sImagePath);
         ivMainImage.setImageURI(uri);
